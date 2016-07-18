@@ -1,24 +1,15 @@
 title: Migrating to Ruby 1.9
 
-h1. Migrating to Ruby 1.9
+
+# Migrating to Ruby 1.9
 
 Bruce Williams @ Scotland on Rails, Edinburgh, April 2008
 
-Adapted S6/S9[1] Version from "Original Slide Deck":http://codefluency.com/articles/2008/04/14/migrating-to-ruby-1-9
-
-<hr>
-fn1. ("Source":http://slideshow.rubyforge.org/svn/samples/ruby19mig.textile)
-
-*Slide Show Keyboard Controls (Help)*
-
-| Action | Key |
-| Go to next slide | Space Bar, Right Arrow, Down Arrow, Page Down |
-| Go to previous slide | Left Arrow, Up Arrow, Page Up |
-| Toggle between slideshow and outline view (&#216;) | T |
-| Show/hide slide controls (&#216; &laquo; &raquo;) | C, Move mouse to bottom right corner |
+(Adapted S6/S9 Version from Original Slide Deck)
 
 
-h1. About Bruce Williams
+
+# About Bruce Williams
 
 Perpetrator of much random Ruby hackery, language tourist
 
@@ -26,33 +17,35 @@ Rubyist since 2001 (Full-time since 2005)
 
 Open source developer, contributer, technical editor, designer
 
-Occasionally blogs at "@codefluency.com@":http://codefluency.com
+Occasionally blogs at [`codefluency.com`](http://codefluency.com)
 
-h1. Ruby 1.8 / Ruby 1.9
 
-h3. 1.8
+# Ruby 1.8 / Ruby 1.9
+
+### 1.8
 
 * Stable.
 * The syntax and language features you know and probably love.
 * The performance profile you know and might hate a little.
 
-h3. 1.9
+### 1.9
 
 * Unstable, transitional.
 * Many new syntax and language features.
 * Better performance, especially for computationally intensive operations.
 
-h1. Installing Ruby 1.9
+# Installing Ruby 1.9
 
-* Get it from "ruby-lang.org":http://ruby-lang.org; by release or subversion
-* Use @./configure --prefix=/somewhere/nice@ to put it where you want it
-* Probably use @--program-suffix=1.9@, too
+* Get it from [ruby-lang.org](http://ruby-lang.org); by release or subversion
+* Use `./configure --prefix=/somewhere/nice` to put it where you want it
+* Probably use `--program-suffix=1.9`, too
 
-h1. Ruby's Releases - From Toybox to Toolshed
+# Ruby's Releases - From Toybox to Toolshed
 
 Born in Japan (1995) -> Beyond Japan (2001) -> .. on Rails (2004) -> Expansion (2008)
 
 | (development 1.5) | | |
+|-------------------|-|-|
 | 1.6.0 | '00 | |
 | 1.6.1 | '01 | |
 | 1.6.2 | '01 | |
@@ -69,36 +62,36 @@ Born in Japan (1995) -> Beyond Japan (2001) -> .. on Rails (2004) -> Expansion (
 | 1.8.5 | '06 | |
 | 1.8.6 | '07 | (development 1.9 ongoing) |
 
-h1. Standard Library
+# Standard Library
 
-* *rubygems* added (+ prelude & @ruby --disable-gems@)
-* *rake* added
-* *json* (pure, ext) added
-* FasterCSV replaced the previous *csv*
-* Also added: *ripper*, *probeprofiler*, *securerandom*, HMAC digests (some others moved)
-* Removed: *soap*, *wsdl*, *base64* (use @[@@str].pack/unpack 'm*'@), and some rarely used, old libraries
+* **rubygems** added (+ prelude & `ruby --disable-gems`)
+* **rake** added
+* **json** (pure, ext) added
+* FasterCSV replaced the previous **csv**
+* Also added: **ripper**, **probeprofiler**, **securerandom**, HMAC digests (some others moved)
+* Removed: **soap**, **wsdl**, **base64** (use `@@str.pack/unpack 'm*'`), and some rarely used, old libraries
 
-h1. Parser/Syntax Changes
+# Parser/Syntax Changes
 
 New Hash Literal
 
-{{{
+```
 {a: "foo"}
 # => {:a=>"foo"}
 
 {a: "bar", :b => "baz"}
 # => {:a=>"bar", :b=>"baz"}
-}}}
+```
 
 New Proc Literal, Invocation
 
-{{{
+```
 multiply_by_2 = ->(x) { x * 2 }
 # => #<Proc:0x3c5a50>
 
 multiply_by_2.(4)
 # => 8
-}}}
+```
 
 h1. Parser/Syntax Changes Continued
 
