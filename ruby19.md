@@ -6,20 +6,15 @@ Title: Ruby 1.9: What to Expect
 %%%%%%%%%%%%%
 % Slides Start Here
 
-h1. Ruby 1.9: What to Expect
+# Ruby 1.9: What to Expect
 
-p(center). Sam Ruby @ OSCON 2008, Portland, Oregon, July 2008[1]
+Sam Ruby @ OSCON 2008, Portland, Oregon, July 2008
 
-%% ---
-
-fn1. Adapted S6 Version from "Original Slide Deck":http://intertwingly.net/slides/2008/oscon/ruby19/1
-
-%% , {{ source path=3rd text='S9 Textile Source'}}
-
-{{ help }}
+(Adapted S6 Version from Original Slide Deck)
 
 
-h1. About Sam Ruby
+
+# About Sam Ruby
 
 * Agile Web Development with Rails (3rd Edition)
 * Apache Software Foundation
@@ -28,20 +23,20 @@ h1. About Sam Ruby
 * PHP Group (No longer active)
 * RESTful Web Services
 
-==-== "intertwingly.net":http://intertwingly.net
+\- [intertwingly.net](http://intertwingly.net)
 
 
-h1. Agenda
+# Agenda
 
 * Part 0: Overview
 * Part 1: What's Changed?
 * Part 2: What's New?
 
 
-h1(fullscreen).  Part 0 - Overview
+# Part 0 - Overview
 
 
-h1. What is Ruby?
+# What is Ruby?
 
 * MRI (Matz' Ruby Interpreter)
 * Rubinius - RubySpec
@@ -52,19 +47,19 @@ h1. What is Ruby?
 * MagLev
 * YARV (Yet Another Ruby Virtual-machine)
 
-h1. Ruby 1.9 - Major Features
+# Ruby 1.9 - Major Features
 
 * Performance
 * Threads/Fibers
 * Encoding/Unicode
 * gems is (mostly) built-in now
-** No contribs
+  * No contribs
 
-h1. One Lesson
+# One Lesson
 
 If you can only take away one message from this presentation:
 
-* @if@ statements do not introduce scope in Ruby.
+* `if` statements do not introduce scope in Ruby.
 
 h1. Replace Methods
 
