@@ -2,14 +2,16 @@ title: Groovin' with Grails
 gradient-colors: navy aqua
 
 
-h1. Groovin' with Grails
+# Groovin' with Grails
 
 How to use your favorite frameworks Rails-style in Java. Really.
 
-(Adapted S9 Version From Original PDF Slide Deck by Ken Rimple, Chariot Solutions)  
+Ken Rimple, Chariot Solutions
+
+(Adapted S9 Version from Original PDF Slide Deck)  
 
 
-h1. Agenda
+# Agenda
 
 * Why Groovy?
 * DRY Frameworks
@@ -17,17 +19,16 @@ h1. Agenda
 * Interactive Demo
 * Going Further...
 
-h1. Why Groovy?
+# Why Groovy?
 
 * Dynamically typed language
 * Runs natively on the VM as bytecode
-* @groovyc@ compiler compiles both Java and Groovy in one pass...
-* Uses a superset of Java syntax and dynamic
-language ‘syntactic sugar’
+* `groovyc` compiler compiles both Java and Groovy in one pass...
+* Uses a superset of Java syntax and dynamic language 'syntactic sugar'
 * Groovy classes can extend Java classes (and vice-versa)
 
 
-h1. Really Groovy Features
+# Really Groovy Features
 
 Groovy is Java without all that messy typing...
 
@@ -39,36 +40,40 @@ Groovy is Java without all that messy typing...
 * Dirt-simple XML parsing support
 
 
-h1. Java vs Groovy
+# Java vs Groovy
 
-h3. Java
+### Java
 
 * POJOs require
-** Explicit Constructors
-** Explicit get/setters
-** @.equals@ and @.hashCode@
+  * Explicit Constructors
+  * Explicit get/setters
+  * `.equals` and `.hashCode`
+
+<!-- -->
 
 * Java is noisy
-** No closures (yet)
-** No dynamic typing
+  * No closures (yet)
+  * No dynamic typing
 
-h3. Groovy
+### Groovy
 
 * POGOs require
-** Definition of members
-** That’s it!
+  * Definition of members
+  * That's it!
+
+<!-- -->
 
 * Groovy Supports
-** Dynamic typing (@def@)
-** Expanding classes
-** Closures
-** Much more...
+  * Dynamic typing (`def`)
+  * Expanding classes
+  * Closures
+  * Much more...
 
-h1. Java vs. Groovy - POJOs vs POGOs
+# Java vs. Groovy - POJOs vs POGOs
 
-@Voter.java@:
+`Voter.java`:
 
-{{{
+```
  1: public class Voter 
  2: {
  3:   private String ssn;
@@ -85,18 +90,18 @@ h1. Java vs. Groovy - POJOs vs POGOs
 14:  
 15:   etc...
 16: }
-}}}
+```
 
-@Voter.groovy@: 
+`Voter.groovy`: 
 
-{{{
+```
 1: class Voter 
  2: {
  3:   String ssn
  4:   String lastName
  5:   String firstName
  6: }
-}}}
+```
 
 h1. Java vs. Groovy Continued
 
