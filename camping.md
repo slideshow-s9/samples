@@ -2,32 +2,27 @@ title: Going Camping - A Web Microframework in 4k Ruby
 gradient-colors: black grey
 
 
-h1. Going Camping - A Web Microframework in 4k Ruby
+# Going Camping - A Web Microframework in 4k Ruby
 
-"Jeremy McAnally":http://www.jeremymcanally.com @ GoRuCo (Gotham Ruby Conference) 2007, New York City
+[Jeremy McAnally](http://www.jeremymcanally.com) @ GoRuCo (Gotham Ruby Conference) 2007, New York City
 
-Adapted S6/S9[1] Version from "Original PDF Slide Deck":http://www.jeremymcanally.com/going_camping.pdf
-
----
-fn1. ("Source":http://slideshow.rubyforge.org/svn/samples/camping.textile)
-
-{{help}}
+Adapted S6/S9 Version from Original PDF Slide Deck
 
 
-h1. About Jeremy McAnally
+# About Jeremy McAnally
 
 * Still in college
 * I dig writing
-* "Humble Litte Ruby Book":http://infoq.com/minibooks/ruby
-* "Ruby in Practice Book":http://manning.com/mcanally
+* [Humble Litte Ruby Book](http://infoq.com/minibooks/ruby)
+* [Ruby in Practice Book](http://manning.com/mcanally)
 
-h1. What is Camping?
+# What is Camping?
 
 * A web microframework
 * 4 Kilobytes
 * Written by _why the lucky stiff
 
-p{font-size: 10px; color: white; background-color: black; padding: 5px; border: silver thick groove; -moz-border-radius: 11px;}. <code>
+<p style="font-size: 10px; color: white; background-color: black; padding: 5px; border: silver thick groove; -moz-border-radius: 11px;"><code>
  %w[rubygems active_record markaby metaid ostruct].each {|lib| require lib}
  module Camping;C=self;module Models;end;Models::Base=ActiveRecord::Base
  module Helpers;def R c,*args;p=/\(.+?\)/;args.inject(c.urls.detect{|x|x.
@@ -70,7 +65,7 @@ p{font-size: 10px; color: white; background-color: black; padding: 5px; border: 
  include Controllers::Base;include Models};o=k.new;o.service(r,ENV,m,a);rescue\
  =>e;Controllers::ServerError.new.service(r,ENV,"GET",[k,m,e]);end;end;end
  module Views; include Controllers; include Helpers end;end
-</code>
+</code></p>
 
 
 h1. What is Camping?
