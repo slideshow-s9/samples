@@ -44,8 +44,8 @@ Occasionally blogs at [`codefluency.com`](http://codefluency.com)
 
 Born in Japan (1995) -> Beyond Japan (2001) -> .. on Rails (2004) -> Expansion (2008)
 
-| (development 1.5) | | |
-|-------------------|-|-|
+| (development 1.5) |  |  |
+|-------------------|--|--|
 | 1.6.0 | '00 | |
 | 1.6.1 | '01 | |
 | 1.6.2 | '01 | |
@@ -93,19 +93,19 @@ multiply_by_2.(4)
 # => 8
 ```
 
-h1. Parser/Syntax Changes Continued
+# Parser/Syntax Changes Continued
 
 Splat arguments before
 
-{{{
+```
 names = %w(joe john bill)
 [*names, 'jack']
 # => ["joe", "john", "bill", "jack"]
-}}}
+```
 
 Method Parameter ordering
 
-{{{
+```
 def say(language=:english, text)
   puts Translator[language].translate(text)
 end
@@ -113,16 +113,16 @@ say "hello"
 # hello
 say :spanish, "hello"
 # hola
-}}}
+```
 
-h1. Migrating Risk Factors
+# Migrating Risk Factors
 
 * Text processing
 * "Clever" assignment with blocks
 * Some Hash enumerations
 * Metaprogramming, code generation
 
-h1. Tests are Good
+# Tests are Good
 
 I was surprised at how much work my 11th hour integration of the
 FasterCSV code was. It was a pure Ruby library that really didn't do
@@ -132,151 +132,151 @@ coverage to lead me to the problem areas.
 
 -- James Edward Gray II (December 2007)
 
-Follow-up Posting: "Getting Code Ready for Ruby 1.9":http://blog.grayproductions.net/articles/getting_code_ready_for_ruby_19
+Follow-up Posting: [Getting Code Ready for Ruby 1.9](http://blog.grayproductions.net/articles/getting_code_ready_for_ruby_19)
 
-h1. Block Local Variables - Arguments Are Always Local
+# Block Local Variables - Arguments Are Always Local
 
-{{{
+```
 item = 1
 2.upto(4) do |item|
   p item
 end
-}}}
+```
 
 Outputs In 1.8
 
-{{{
+```
 # 2
 # 3
 # 4
 item
 # => 4
-}}}
+```
 
 Outputs In 1.9
 
-{{{
+```
 # 2
 # 3
 # 4
 item
 # => 1
-}}}
+```
 
-h1. Shadowing Variables - You'll Get a Warning
+# Shadowing Variables - You'll Get a Warning
 
-{{{
+```
 i = 1
 lambda { |i| p i }.call(3)
-}}}
+```
 
 Outputs In 1.8
 
-{{{
+```
 # 3
 i
 # => 3
-}}}
+```
 
 Outputs In 1.9
 
-{{{
+```
 # 3
 i
 # => 1
-}}}
+```
 
-warning line 2: shadowing outer local variable - @i@
+warning line 2: shadowing outer local variable - `i`
 
-h1. Shadowing Variables - Locals, But Warned
+# Shadowing Variables - Locals, But Warned
 
 No Local, Reassigns
 
-{{{
+```
 d = 2
 -> { d = 1 }.()
 d
 # => 1
-}}}
+```
 
 Local, shadowed
 
-{{{
+```
 d = 2
 ->(;d) { d = 1 }.()
 d
 # => 2
-}}}
+```
 
-warning line 2: shadowing outer local variable - @d@
+warning line 2: shadowing outer local variable - `d`
 
-h1. @Hash#select@ - Changes to Yielded Arguments
+# `Hash#select` - Changes to Yielded Arguments
 
 Ruby 1.8
 
-{{{
+```
 conferences.select do |data|
   p data
 end
 # [:euruko, "Prague"]
 # [:scotland_on_rails, "Edinburgh"]
 # [:railsconf_europe, "Berlin"]
-}}}
+```
 
 warning: multiple values for a block parameter (2 for 1)
 
 Ruby 1.9
 
-{{{
+```
 conferences.select do |data|
   p data
 end
 # :euruko
 # :scotland_on_rails
 # :railsconf_europe
-}}}
+```
 
-{{{
+```
 conferences.select do |name, city|
   p [name, city]
 end
 # [:euruko, "Prague"]
 # [:scotland_on_rails, "Edinburgh"]
 # [:railsconf_europe, "Berlin"]
-}}}
+```
 
-h1. @Hash#select@ - Returns a Hash
+# `Hash#select` - Returns a Hash
 
-{{{
+```
 conferences.select do |name, _|
   name == :scotland_on_rails
 end
-}}}
+```
 
 Ruby 1.8
 
-{{{
+```
 # => [[:scotland_on_rails, "Edinburgh"]]
-}}}
+```
 
 Ruby 1.9
 
-{{{
+```
 # => {:scotland_on_rails=>"Edinburgh"}
-}}}
+```
 
 
-h1. Multilingualization (m17n)
+# Multilingualization (m17n)
 
 * There is one type of string, and the encoding is mutable
-* Strings are no longer Enumerable (use @#each_char@, @#each_line@, etc)
-* The encoding is 'lazy' and can be set by probing with @String#ascii_only?@ and @String#valid_encoding?@.
+* Strings are no longer Enumerable (use `#each_char`, `#each_line`, etc)
+* The encoding is 'lazy' and can be set by probing with `String#ascii_only?` and `String#valid_encoding?`.
 * Various ways to set default encoding (commandline, magic comments)
-* @String#[]@ now returns a String, not a Fixnum (use @ord@)
+* `String#[]` now returns a String, not a Fixnum (use `ord`)
 
-h1. Multilingualization (m17n) Continued
+# Multilingualization (m17n) Continued
 
-h3. Encodings
+### Encodings
 
 :ASCII_8BIT, :Big5, :BIG5, :CP949, :EUC_JP, :EUC_KR, :EUC_TW, :GB18030, :GBK, :ISO_8859_1,
 :ISO_8859_2, :ISO_8859_3, :ISO_8859_4, :ISO_8859_5, :ISO_8859_6, :ISO_8859_7, :ISO_8859_8,
@@ -302,21 +302,21 @@ h3. Encodings
 :CSWINDOWS31J, :MacJapanese, :MACJAPANESE, :MacJapan, :MACJAPAN, :ASCII, :ANSI_X3_4_1968,
 :UTF_7, :CP65000, :CP65001, :UCS_2BE, :UCS_4BE, :UCS_4LE, :CP1251
 
-h1. Multilingualization (m17n) Continued
+# Multilingualization (m17n) Continued
 
-Read a file with @File.read@
+Read a file with `File.read`
 
-{{{
+```
 File.read("input.txt").encoding
 # => #<Encoding:UTF-8>
 
 File.read("input.txt", encoding: 'ascii-8bit').encoding
 # => #<Encoding:ASCII-8BIT>
-}}}
+```
 
-Read a file with @File.open@
+Read a file with `File.open`
 
-{{{
+```
 result = File.open("input.txt", "r:euc-jp") do |f|
   f.read
 end
@@ -324,72 +324,72 @@ result.encoding
 # => #<Encoding:EUC-JP>
 result.valid_encoding?
 # => true
-}}}
+```
 
-h1. Regular Expressions - Oniguruma Engine
+# Regular Expressions - Oniguruma Engine
 
 * Same basic API
 * Much Better performance
 * Support for encodings
 * Extended Syntax
-** Look-ahead @(?=)@, @(?!)@, look-behind @(?<)@, @(?<!)@
-** Named groups @(?<>)@, backreferences, etc
+  * Look-ahead `(?=)`, `(?!)`, look-behind `(?<)`, `(?<!)`
+  * Named groups `(?<>)`, backreferences, etc
 
 Named Groups
 
-{{{
+```
 "His name is Joe".match(/name is (?<name>\S+)/)[:name]
 # => "Joe"
-}}}
+```
 
-h1. Enumerable
+# Enumerable
 
-Enumerator built-in, returned from Enumerable methods (and those in @Array@, @Dir@, @Hash@, @IO@, @Range@, @String@ or @Struct@ that serve the same purposes).
-Added @Enumerator#with_index@
+Enumerator built-in, returned from Enumerable methods (and those in `Array`, `Dir`, `Hash`, `IO`, `Range`, `String` or `Struct` that serve the same purposes).
+Added `Enumerator#with_index`
 
 Map with Index
 
-{{{
+```
 %w(Joe John Jack).map.with_index do |name, offset|
   "#{name} is #{offset + 1}"
 end
 # => ["Joe is #1", "John is #2", "Jack is #3"]
-}}}
+```
 
-h1. Enumerable - @Reduce@ (@inject@)
+# Enumerable - `Reduce` (`inject`)
 
-{{{
+```
 [1,2,3,4].reduce(:+)
 # => 10
-}}}
+```
 
-h1. Enumerable Continued
+# Enumerable Continued
 
-New Enumerable methods @take@, @group_by@, @drop@, @min_by@, @max_by@, @count@, and others. @Enumerable#inject@/@reduce@ can take a single argument.
+New Enumerable methods `take`, `group_by`, `drop`, `min_by`, `max_by`, `count`, and others. `Enumerable#inject`/`reduce` can take a single argument.
 
-@take@
+`take`
 
-{{{
+```
 array = [1, 2, 3, 4, 5]
 array.take(3)
 # => [1, 2, 3]
 array
 # => [1, 2, 3, 4, 5]
-}}}
+```
 
-@drop@
+`drop`
 
-{{{
+```
 array = [1, 2, 3, 4, 5]
 array.drop(3)
 # => [4, 5]
 array
 # => [1, 2, 3, 4, 5]
-}}}
+```
 
-h1. Hash Changes - Insertion Order Preserved
+# Hash Changes - Insertion Order Preserved
 
-{{{
+```
 conferences = {
   euruko: 'Prague',
   scotland_on_rails: 'Edinburgh'
@@ -412,62 +412,62 @@ end
 # "euruko is in Prague"
 # "railsconf_europe is in Berlin"
 # "scotland_on_rails is in Edinburgh"
-}}}
+```
 
-h1. Object - Added @tap@
+# Object - Added `tap`
 
-{{{
+```
 thing = Thing.new.tap do |thing|
   thing.something = 1
   thing.something_else = 2
 end
-}}}
+```
 
 
-h1. Lambda Changes - Obfuscation, Ahoy!
+# Lambda Changes - Obfuscation, Ahoy!
 
 * New literal syntax more flexible
-* Not possible in @{ | | ... }@ style literals
+* Not possible in `{ | | ... }` style literals
 
 Passing Blocks
 
-{{{
+```
 m = ->(x, &b) { b.(x * 2) if b }
 m.(3) do |result|
   puts result
 end
 # Output
 # 6
-}}}
+```
 
 Default Arguments
 
-{{{
+```
 ->(a, b=2) { a * b }.(3)
 # => 6
-}}}
+```
 
-h1. Symbol Changes - Less Sibling Rivalry
+# Symbol Changes - Less Sibling Rivalry
 
-* Added @to_proc@
-* Added @=~@, @[]@ like String (@to_s@ less needed), sortable
-* @Object#methods@, etc now return an array of symbols
+* Added `to_proc`
+* Added `=~`, `[]` like String (`to_s` less needed), sortable
+* `Object#methods`, etc now return an array of symbols
 
 Indexing into a Symbol
 
-{{{
+```
 :foo[1]
 # => "o"
-}}}
+```
 
 Comparing with a String
 
-{{{
+```
 :this === "this"
 # => true
-}}}
+```
 
-h1. Fibers - "Semi-Coroutines"
+# Fibers - "Semi-Coroutines"
 
 * Similar to Python's generators
 * Owe method naming lineage to Lua
@@ -475,20 +475,17 @@ h1. Fibers - "Semi-Coroutines"
 
 For some examples, see:
 
-* "Pipelines Using Fibers in Ruby 1.9":http://pragdave.blogs.pragprog.com/pragdave/2007/12/pipelines-using.html (and follow-up)
-* "Fibonacci numbers with Ruby 1.9 Fibers; Coroutines (via fibers) in Ruby 1.9":http://www.davidflanagan.com/blog/2007_08.html (older)
+* [Pipelines Using Fibers in Ruby 1.9](http://pragdave.blogs.pragprog.com/pragdave/2007/12/pipelines-using.html) (and follow-up)
+* [Fibonacci numbers with Ruby 1.9 Fibers; Coroutines (via fibers) in Ruby 1.9](http://www.davidflanagan.com/blog/2007_08.html) (older)
 * Revactor project (Actors in 1.9 using Fibers + Threads)
 * InfoQ, others...
 
 
-h1. Thanks!
+# Thanks!
 
 This was really just an introduction.
 
-Bruce Williams  //  @bruce AT codefluency.com@  // twitter: wbruce 
-
-
-
+Bruce Williams  //  `bruce AT codefluency.com`  // twitter: wbruce 
 
 
 
