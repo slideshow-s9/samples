@@ -61,11 +61,11 @@ If you can only take away one message from this presentation:
 
 * `if` statements do not introduce scope in Ruby.
 
-h1. Replace Methods
+# Replace Methods
 
 Bilingual Ruby
 
-{{{
+```
 class Employee
   if String.method_defined?(:encode)
     def name
@@ -77,13 +77,13 @@ class Employee
     end
   end
 end
-}}}
+```
 
-h1. Replace Implementation
+# Replace Implementation
 
 Bilingual Ruby
 
-{{{
+```
 if String.method_defined?(:encode)
   module Builder
     ...
@@ -93,9 +93,9 @@ else
     ...
   end
 end
-}}}
+```
 
-h1. Continuous Integration (CI) Efforts
+# Continuous Integration (CI) Efforts
 
 * Ruby
 * Bacon
@@ -107,222 +107,223 @@ h1. Continuous Integration (CI) Efforts
 * Rake (contrib)
 * XMPP4R
 
-h1(fullscreen). Part 1 - What's Changed?
+
+# Part 1 - What's Changed?
 
 
-h1. Single Character Strings
+# Single Character Strings
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> ?c
 => "c"
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> ?c
 => 99
-}}}
+```
 
 
-h1. String Index
+# String Index
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> "cat"[1]
 => "a"
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> "cat"[1]
 => 97
-}}}
+```
 
 
-h1. {"a","b"} No Longer Supported
+# {"a","b"} No Longer Supported
 
 Ruby 1.9
 
-{{{
+```
 irb(main):002:0> {1,2}
 SyntaxError: (irb):2: syntax error, unexpected ',', expecting tASSOC
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> {1,2}
 => {1=>2}
-}}}
+```
 
-*Action*: Convert to @{1 => 2}@
+**Action**: Convert to `{1 => 2}`
 
 
-h1. @Array.to_s@ Now Contains Punctuation
+# `Array.to_s` Now Contains Punctuation
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> [1,2,3].to_s
 => "[1, 2, 3]"
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> [1,2,3].to_s
 => "123"
-}}}
+```
 
-*Action*: Use @.join@ instead
+**Action**: Use `.join` instead
 
 
-h1. Colon No Longer Valid In When Statements
+# Colon No Longer Valid In When Statements
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> case 'a'; when /\w/: puts 'word'; end
 SyntaxError: (irb):1: syntax error, unexpected ':',
 expecting keyword_then or ',' or ';' or '\n'
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> case 'a'; when /\w/: puts 'word'; end
 word
-}}}
+```
 
-*Action*: Use semicolon, @then@, or newline
+**Action**: Use semicolon, `then`, or newline
 
 
-h1. Block Variables Now Shadow Local Variables
+# Block Variables Now Shadow Local Variables
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> i=0; [1,2,3].each {|i|}; i
 => 0
 irb(main):002:0> i=0; for i in [1,2,3]; end; i
 => 3
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> i=0; [1,2,3].each {|i|}; i
 => 3
-}}}
+```
 
 
-h1. @Hash.index@ Deprecated
+# `Hash.index` Deprecated
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> {1=>2}.index(2)
 (irb):18: warning: Hash#index is deprecated; use Hash#key
 => 1
 irb(main):002:0> {1=>2}.key(2)
 => 1
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> {1=>2}.index(2)
 => 1
-}}}
+```
 
-*Action*: Use @Hash.key@
+**Action**: Use `Hash.key`
 
 
-h1. @Fixnum.to_sym@ Now Gone
+# `Fixnum.to_sym` Now Gone
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> 5.to_sym
 NoMethodError: undefined method 'to_sym' for 5:Fixnum
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> 5.to_sym
 => nil
-}}}
+```
 
-h1. @Fixnum.to_sym@ Now Gone (Cont'd)
+# `Fixnum.to_sym` Now Gone (Cont'd)
 
 Ruby 1.9
 
-{{{
+```
 # Find an argument value by name or index.
 def [](index)
   lookup(index.to_sym)
 end
-}}}
+```
 
-"@svn.ruby-lang.org/repos/ruby/trunk/lib/rake.rb@":http://svn.ruby-lang.org/repos/ruby/trunk/lib/rake.rb
+[`svn.ruby-lang.org/repos/ruby/trunk/lib/rake.rb`](http://svn.ruby-lang.org/repos/ruby/trunk/lib/rake.rb)
 
 
-h1. Hash Keys Now Unordered
+# Hash Keys Now Unordered
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> {:a=>"a", :c=>"c", :b=>"b"}
 => {:a=>"a", :c=>"c", :b=>"b"}
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> {:a=>"a", :c=>"c", :b=>"b"}
 => {:a=>"a", :b=>"b", :c=>"c"}
-}}}
+```
 
 Order is insertion order
 
 
-h1. Stricter Unicode Regular Expressions
+# Stricter Unicode Regular Expressions
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> /\x80/u
 SyntaxError: (irb):2: invalid multibyte escape: /\x80/
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> /\x80/u
 => /\x80/u
-}}}
+```
 
-h1. @tr@ and @Regexp@ Now Understand Unicode
+# `tr` and `Regexp` Now Understand Unicode
 
 Ruby 1.9
 
-{{{
+```
 unicode(string).tr(CP1252_DIFFERENCES, UNICODE_EQUIVALENT).
   gsub(INVALID_XML_CHAR, REPLACEMENT_CHAR).
   gsub(XML_PREDEFINED) {|c| PREDEFINED[c.ord]}
-}}}
+```
 
-h1. @pack@ and @unpack@
+# `pack` and `unpack`
 
 Ruby 1.8.6
 
-{{{
+```
 def xchr(escape=true)
   n = XChar::CP1252[self] || self
   case n when *XChar::VALID
@@ -333,87 +334,87 @@ def xchr(escape=true)
   end
 end
 unpack('U*').map {|n| n.xchr(escape)}.join
-}}}
+```
 
-h1. @BasicObject@ More Brutal Than @BlankSlate@
+# `BasicObject` More Brutal Than `BlankSlate`
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> class C < BasicObject; def f; Math::PI; end; end; C.new.f
 NameError: uninitialized constant C::Math
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> require 'blankslate'
 => true
 irb(main):002:0> class C < BlankSlate; def f; Math::PI; end; end; C.new.f
 => 3.14159265358979
-}}}
+```
 
-*Action*: Use @::Math::PI@
+**Action**: Use `::Math::PI`
 
 
-h1. Delegation Changes
+# Delegation Changes
 
 Ruby 1.9
 
-{{{
+```
 irb(main):002:0> class C < SimpleDelegator; end
 => nil
 irb(main):003:0> C.new('').class
 => String
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):002:0> class C < SimpleDelegator; end
 => nil
 irb(main):003:0> C.new('').class
 => C
 irb(main):004:0>
-}}}
+```
 
-"Defect 17700":http://rubyforge.org/tracker/index.php?func=detail&aid=17700&group_id=426&atid=1698
+[Defect 17700](http://rubyforge.org/tracker/index.php?func=detail&aid=17700&group_id=426&atid=1698)
 
 
-h1. Use of $KCODE Produces Warnings
+# Use of $KCODE Produces Warnings
 
 Ruby 1.9
 
-{{{
+```
 irb(main):004:1> $KCODE = 'UTF8'
 (irb):4: warning: variable $KCODE is no longer effective; ignored
 => "UTF8"
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> $KCODE = 'UTF8'
 => "UTF8"
-}}}
+```
 
-h1. @instance_methods@ Now an Array of Symbols
+# `instance_methods` Now an Array of Symbols
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> {}.methods.sort.last
 => :zip
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 irb(main):001:0> {}.methods.sort.last
 => "zip"
-}}}
+```
 
-*Action*: Replace @instance_methods.include?@ with @method_defined?@
+**Action**: Replace `instance_methods.include?` with `method_defined?`
 
 
 h1. Source File Encoding
