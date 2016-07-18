@@ -417,183 +417,184 @@ irb(main):001:0> {}.methods.sort.last
 **Action**: Replace `instance_methods.include?` with `method_defined?`
 
 
-h1. Source File Encoding
+# Source File Encoding
 
 Basic
 
-{{{
+```
 # coding: utf-8
-}}}
+```
 
 Emacs
 
-{{{
+```
 # -*- encoding: utf-8 -*-
-}}}
+```
 
 
 Shebang
 
-{{{
+```
 #!/usr/local/rubybook/bin/ruby
 # encoding: utf-8
-}}}
+```
 
-h1. Real Threading
+# Real Threading
 
 * Race Conditions
 * Implicit Ordering Assumptions
 * Test Code
 
-h1. Implications
+# Implications
 
 * Changes are straightforward
 * Cumulative effect is massive
 * The biggest obstacle to Ruby 1.9's adoption is the sheer number of mostly working but essentially unmaintained gems that virtually everybody in the Ruby community depends on
 * Emergence of alternate implementations also a source for inertia
 
-h1. Recommendations
+# Recommendations
 
 Encourage maintainers of gems to:
 
 * Produce versions of gems that work with 1.8.x and 1.9
-* For long term, move to distributed version control systems (DVCS) like @git@
+* For long term, move to distributed version control systems (DVCS) like `git`
 
-h1. Rails Dependencies
+# Rails Dependencies
 
-@actionmailer-2.1.0@, @actionpack-2.1.0@, @activerecord-2.1.0@, @activeresource-2.1.0@, @activesupport-2.1.0@, @builder-2.1.2@, @memcache-client-1.5.0@, @rails-2.1.0@, @rake-0.8.1@, @sources-0.0.1@, @text-format-0.6.3@, @tmail-1.2.3@, @tzinfo-0.3.8@, @xml-simple-1.0.11@, @html-scanner@, @db2.rb@, @mysql.rb@
-
-h1(fullscreen). Part 2 - What's New?
+`actionmailer-2.1.0`, `actionpack-2.1.0`, `activerecord-2.1.0`, `activeresource-2.1.0`, `activesupport-2.1.0`, `builder-2.1.2`, `memcache-client-1.5.0`, `rails-2.1.0`, `rake-0.8.1`, `sources-0.0.1`, `text-format-0.6.3`, `tmail-1.2.3`, `tzinfo-0.3.8`, `xml-simple-1.0.11`, `html-scanner`, `db2.rb`, `mysql.rb`
 
 
-h1. Alternate Syntax for Symbol as Hash Keys
+# Part 2 - What's New?
+
+
+# Alternate Syntax for Symbol as Hash Keys
 
 Ruby 1.9
 
-{{{
+```
 {a: b}
 
 redirect_to action: show
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 {:a => b}
 
 redirect_to :action => show
-}}}
+```
 
 
-h1. Block Local Variables
+# Block Local Variables
 
 Ruby 1.9
 
-{{{
+```
 [1,2].each {|value; t| t=value*value}
-}}}
+```
 
 
-h1. Inject Methods
+# Inject Methods
 
 Ruby 1.9
 
-{{{
+```
 [1,2].inject(:+)
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 [1,2].inject {|a,b| a+b}
-}}}
+```
 
 
-h1. @to_enum@
+# `to_enum`
 
 Ruby 1.9
 
-{{{
+```
 short_enum = [1, 2, 3].to_enum
 long_enum = ('a'..'z').to_enum
 loop do
   puts "#{short_enum.next} #{long_enum.next}"
 end
-}}}
+```
 
-h1. No block? Enum!
+# No block? Enum!
 
 Ruby 1.9
 
-{{{
+```
 e = [1,2,3].each
-}}}
+```
 
-h1. Lambda Shorthand
+# Lambda Shorthand
 
 Ruby 1.9
 
-{{{
+```
 p = -> a,b,c {a+b+c}
 puts p.(1,2,3)
 puts p[1,2,3]
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 p = lambda {|a,b,c| a+b+c}
 puts p.call(1,2,3)
-}}}
+```
 
-h1. Complex Numbers
+# Complex Numbers
 
 Ruby 1.9
 
-{{{
+```
 Complex(3,4) == 3 + 4.im
-}}}
+```
 
 
-h1. Decimal Is Still Not The Default
+# Decimal Is Still Not The Default
 
 Ruby 1.9
 
-{{{
+```
 irb(main):001:0> 1.2-1.1
 => 0.0999999999999999
-}}}
+```
 
-h1. Regex "Properties"
+# Regex "Properties"
 
 Ruby 1.9
 
-{{{
+```
 /\p{Space}/
-}}}
+```
 
 Ruby 1.8.6
 
-{{{
+```
 /[:space:]/
-}}}
+```
 
 
-h1. Splat in Middle
+# Splat in Middle
 
 Ruby 1.9
 
-{{{
+```
 def foo(first, *middle, last)
 
 (->a, *b, c {p a-c}).(*5.downto(1))
-}}}
+```
 
-h1. Fibers
+# Fibers
 
 Ruby 1.9
 
-{{{
+```
 f = Fiber.new do
   a,b = 0,1
   Fiber.yield a
@@ -604,38 +605,36 @@ f = Fiber.new do
   end
 end
 10.times {puts f.resume}
-}}}
+```
 
-h1. Break Values
+# Break Values
 
 Ruby 1.9
 
-{{{
+```
 match =
    while line = gets
      next if line =~ /^#/
      break line if line.find('ruby')
    end
-}}}
+```
 
-h1. "Nested" Methods
+# "Nested" Methods
 
 Ruby 1.9
 
-{{{
+```
 def toggle
   def toggle
     "subsequent times"
   end
   "first time"
 end
-}}}
+```
 
-h1. Questions
+# Questions
 
 * Any questions?
-* "Programming Ruby 3":http://www.pragprog.com/titles/ruby3/programming-ruby-3
+* [Programming Ruby 3](http://www.pragprog.com/titles/ruby3/programming-ruby-3)
 * Thanks for coming!
-
-{{ google_analytics :code => 'UA-397343-10' }}
 
