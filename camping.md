@@ -6,7 +6,7 @@ gradient-colors: black grey
 
 [Jeremy McAnally](http://www.jeremymcanally.com) @ GoRuCo (Gotham Ruby Conference) 2007, New York City
 
-Adapted S6/S9 Version from Original PDF Slide Deck
+(Adapted S6/S9 Version from Original PDF Slide Deck)
 
 
 # About Jeremy McAnally
@@ -68,33 +68,33 @@ Adapted S6/S9 Version from Original PDF Slide Deck
 </code></p>
 
 
-h1. What is Camping?
+# What is Camping?
 
 * It uses Model-View-Controller 
 * Active Record for the models
-** You probably know what this is.
+  * You probably know what this is.
 * Markaby for the views
-** In a word: Rubylicious.
+  * In a word: Rubylicious.
 * Has (or can easily have) most of the good controller goodness that Rails has.
 
-h1. What is Camping?
+# What is Camping?
 
 * Everything typically lives in one file
 * This file has modules inside of it for each piece of the pie
 * File must be named for the head module
-* @Camping.goes@
+* `Camping.goes`
 
-h1. When to use it
+# When to use it
 
 * When Rails is too fat
 * Right tool for the right job
 * You ain't gonna need it!
 
-h1. Controlling Camping
+# Controlling Camping
 
 Classes define actions
 
-{{{
+```
 module Blog::Controllers
   class Index < R '/'
     def get
@@ -102,54 +102,54 @@ module Blog::Controllers
     end
   end
 end
-}}}
+```
 
-Define methods on those for request types (i.e., @get@ and [@post@])
+Define methods on those for request types (i.e., `get` and `post`)
 
-h1. Controlling Camping
+# Controlling Camping
 
 Routes are regular expressions
 
-{{{
+```
 class Edit < R '/(\w+)/edit'
   def get(page_name)
   end
 end
-}}}
+```
 
-h1. The View
+# The View
 
 Views are constructed using Markaby
 
-{{{
+```
 p "Hello, world!"
 div "This is a #{word}!", :id => "example"
-}}}
+```
 
 No more ERb!
 
-{{{
+```
 <p>Hello, world!</p>
 <div id="example">
   This is a <%%= word %>!
 </div>
-}}}
+```
 
-h1. The View
+# The View
 
 * Tags are constructed using Ruby methods
 * Blocks build the tag hierarchy
 * Attributes are fed as parameters
 
-{{{
+```
 p "Hello, world!"
 
 div :id => "example" do
   span "This is a #{word}!"
 end
-}}}
+```
 
-{{{
+```
 div :id => 'pants' do
   ul do
     ['blue', 'red', 'fancy'].each do |item|
@@ -157,34 +157,34 @@ div :id => 'pants' do
     end
   end
 end
-}}}
+```
 
 
-h1. Models
+# Models
 
 Models are just ActiveRecord classes.
 
-{{{
+```
 class Panda
 end
-}}}
+```
 
 If you don't know what ActiveRecord is...
 
-{{{
+```
 my_panda = Panda.new
 my_panda.name = "Randall"
 my_panda.fav_food = "Dirt"
 my_panda.save
-}}}
+```
 
 Defaults to SQLite
 
-h1. Models
+# Models
 
 Since it's just ActiveRecord, you can use migrations
 
-{{{
+```
 class CreatePan < V 1.0
   def self.up
     create_table :pans do |t|
@@ -193,39 +193,39 @@ class CreatePan < V 1.0
     end
   end
 end
-}}}
+```
 
 You can also use other model-enhancing stuff
 
-{{{
+```
 module CMS::Models
   class Item < Base
     acts_as_versioned
   end
 end
-}}}
+```
 
-h1. Putting It Together - Deployment
+# Putting It Together - Deployment
 
 * Deploying a Camping application is as easy or easier than deploying a Rails application
 * It can be deployed in a wide array of environments...
-** Simple Camping server way
-** "Standard" proxied deployment
-** Probably others
+  * Simple Camping server way
+  * "Standard" proxied deployment
+  * Probably others
 
-h1. What if...?
+# What if...?
 
 * "What if my application gets big and unwieldy?"
 * You can break it into separate files...
-** Just require them and include the modules
-** If it gets this big though, think about Rails
+  * Just require them and include the modules
+  * If it gets this big though, think about Rails
 
-h1. But It Ain't Rails! - ActiveSupport
+# But It Ain't Rails! - ActiveSupport
 
 * You can pull a lot of Rails over to Camping
 * ActiveSupport for example...
 
-{{{
+```
 "plants".singularize
 # => plant
 
@@ -234,14 +234,14 @@ h1. But It Ain't Rails! - ActiveSupport
 
 10.megabytes
 # => 10485760
-}}}
+```
 
-h1. Moving away from SQLite
+# Moving away from SQLite
 
 * Camping defaults to SQLite for its database
 * BUT! You can use other RDBMS options.
 
-{{{
+```
 host : 127.0.0.1
 port : 3301
 server : mongrel
@@ -253,13 +253,13 @@ database :
   :password: passw0rd!
 log:
   my.log
-}}}
+```
 
-h1. Sessions
+# Sessions
 
 Like Rails, Camping has sessions built right in
 
-{{{
+```
 require "camping/session"
 
 module Importer
@@ -268,14 +268,14 @@ end
 
 # Now I can use @state to
 # access sessions values
-}}}
+```
 
-h1. Testing
+# Testing
 
 * Use Mosquito for bugfree Camping
 * Not in the default package, but still available
 
-{{{
+```
 require 'mosquito'
 require 'inventory'
 
@@ -289,18 +289,18 @@ class TestInventory < Camping::FunctionalTest
     assert_response :success
   end
 end
-}}}
+```
 
-h1. Form Helpers
+# Form Helpers
 
-* Gregory Brown posted a nice snippet to get a @form@ equivalent in Camping
-* I'm currently working on extending that to a usable @form_for@
+* Gregory Brown posted a nice snippet to get a `form` equivalent in Camping
+* I'm currently working on extending that to a usable `form_for`
 
-h1. Serving static files
+# Serving static files
 
 Static files can be embedded in a Camping application
 
-{{{
+```
 class Style < R '/base.css'
   def get
     @headers['Content-Type'] = 'text/css'
@@ -310,25 +310,25 @@ end
 
 # In our view...
 link :href => R(Style), :rel => 'stylesheet', :type => 'text/css'
-}}}
+```
 
 They can also be read from disk
 
-{{{
+```
 class Index < R '/'
   def get
     File.read('index.html')
   end
 end
-}}}
+```
 
 Optimally, your front end web server would handle them
 
-h1. Before/after filters
+# Before/after filters
 
-Camping allows you to override the @service@ method to put logic before and after it handles a request
+Camping allows you to override the `service` method to put logic before and after it handles a request
 
-{{{
+```
 module WikiFilter
   def service(*args)
     @value = "Hello!"
@@ -342,18 +342,17 @@ module Wiki
 end
 }}}
 
-h1. Decamper
+# Decamper
 
 * A little application to convert your Camping application to a Rails application
 * Status is unknown
 
-h1. Kindling
+# Kindling
 
 * A new library by me that takes the top 5-10 "Railsisms" and lets you use them in Camping
 * Currently supports...
-** Easy before/after filters
-** Static file download/upload
-** Easy addition of template handlers, with default support for ERb
+  * Easy before/after filters
+  * Static file download/upload
+  * Easy addition of template handlers, with default support for ERb
 
-{{ google_analytics :code => 'UA-397343-10' }}
 
