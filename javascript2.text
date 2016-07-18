@@ -114,7 +114,7 @@ You may still object:
   * So APIs can prove facts about their arguments
   * Without requiring all calling code to be typed
   * (... at first, or ever!)
-* They deserve integrity guarantees such as @const@
+* They deserve integrity guarantees such as `const`
 * They deserve real namespaces, packages, compilation units
 * They deserve some overdue "bug fixes" to the EmcaScript 3 (ES3) standard
 * They deserve generous syntactic sugar on top
@@ -357,7 +357,7 @@ function handleMessage(n) {
   * Sanity-checking the "shape" of API arguments
   * But trusting the client not to mutate behind the library's back!
 * Third stage copied into structural type instances with fixtures -- integrity against confused/malicious client
-* Alternative third stage used @wrap@ instead
+* Alternative third stage used `wrap` instead
 
 # Observations on Evolution (2)
 
