@@ -23,7 +23,7 @@ h1. Why Groovy?
 * Runs natively on the VM as bytecode
 * @groovyc@ compiler compiles both Java and Groovy in one pass...
 * Uses a superset of Java syntax and dynamic
-language ësyntactic sugarí
+language ‚Äòsyntactic sugar‚Äô
 * Groovy classes can extend Java classes (and vice-versa)
 
 
@@ -56,7 +56,7 @@ h3. Groovy
 
 * POGOs require
 ** Definition of members
-** Thatís it!
+** That‚Äôs it!
 
 * Groovy Supports
 ** Dynamic typing (@def@)
@@ -180,7 +180,7 @@ h1. What is Grails?
 * Can be deployed to a web server as a web application
 * Able to execute *any major Java library or service* on the VM natively
 
-h1. Donít Repeat Yourself!
+h1. Don‚Äôt Repeat Yourself!
 
 * Grails is a DRY platform
 * Groovy and Grails aim to remove duplication of effort
@@ -218,7 +218,8 @@ h1. Domain Class
 * Grails uses Domain Class information to build mappings automatically
 * Full Hibernate settings are available if needed using mappings
 
-h1. Sample Domain Class
+
+h1. Sample Domain Class
 
 {{{
 class Party {
@@ -262,7 +263,7 @@ Will prompt for object names if not specified
 
 h1. The Scaffold
 
-* Sometimes, you just donít know what you want yet...
+* Sometimes, you just don‚Äôt know what you want yet...
 * Why define a page before you nail down the data model?
 * Just use a Grails Scaffold
 
@@ -317,7 +318,7 @@ All GORM objects get a @findAll()@ method, and ability to generate queries on th
 {{{
 def result = domObj.findById(234)</code>
 def results =
-  domObj.findAllByNameOrderByPrice(ìnameî)
+  domObj.findAllByNameOrderByPrice(‚Äúname‚Äù)
 }}}
 
 You could also use a GORM DSL for the query...
@@ -334,7 +335,7 @@ def results =
     def now = new Date()
     between('registrationDate', now-30, now)
     party {
-      eq(name, ëWhigí)
+      eq(name, ‚ÄòWhig‚Äô)
     }
     order('lastName')
   }
@@ -402,7 +403,7 @@ h1. Books on Groovy and Grails
 
 h1. Great Grails Sample App
 
-* Gravl - Glen Smithís Grails-based Blog
+* Gravl - Glen Smith‚Äôs Grails-based Blog
 ** @code.google.com/p/gravl@
 
 Excellent example of:
