@@ -85,78 +85,79 @@ Merb is...
 * `merb-core` is the basic slimmed down bare minimum code
 * `merb-more` contains niceties to help you along your way (action-args, assets, builder, cache, freezer, gen, haml, jquery, mailer, parts, slices)
 
-h1. Switzerland
+# Switzerland
 
 * Merb is the Switzerland of Ruby frameworks
 * Doesn't care that you might favour Datamapper over ActiveRecord
 * Lets you choose ORM, Test Framework, JS Framework, Rack Adaptor
 
-h1. Getting started
+# Getting started
 
 To start off with get both core and more
 
-{{{
+```
 gem install merb-core merb-more
-}}}
+```
 
 Choose your ORM
 
-# @gem install merb-activerecord@
-# @gem install sequel@
-# <code>gem sources -a http://gems.datamapper.org && sudo gem install addressable english rspec data_objects do_mysql do_postgres do_sqlite3 dm-core dm-more
-</code>
+1. `gem install merb-activerecord`
+2. `gem install sequel`
+3. `gem sources -a http://gems.datamapper.org && sudo gem install addressable english rspec data_objects do_mysql do_postgres do_sqlite3 dm-core dm-more`
 
 
-h1. @merb-gen@
+
+# `merb-gen`
 
 * Your new friend
 * generates code/files for your app
 
-{{{
+```
 rowan$ merb-gen app speeddemon
  RubiGen::Scripts::Generate
    create log
    create app
      ...etc
-}}}
+```
 
-* <code>merb-gen app yourapp --flat</code> (or) @--very-flat@ (puts your application on a serious diet)
+* `merb-gen app yourapp --flat` (or) `--very-flat` (puts your application on a serious diet)
 
-h1. Differences
+# Differences
 
 | . | Rails | Merb |
-| *Routes* | @config/routes.rb@ | @config/router.rb@ |
-| *Initialization* | @config/environment.rb@ | @config/init.rb@ |
-| Environment specific | @config/environments/*@ | @config/environments/*@ |
-| *Plugins* | @vendor/plugins@ | @gems@ |
-| *Migrations* | @db/migrate@ | @schema/migrations@ |
-| *Testing* | @test@ | @test@ (or) @spec@ |
-| Public | @public@  | @public@ |
-| Models | @app/models@ | @app/models@ |
-| Controllers | @app/controllers@ | @app/controllers@ |
-| Helpers | @app/helpers@ | @app/helpers@ |
-| *Lib* | @lib/@ | (@config@ in @init.rb@) |
+|---|-------|------|
+| *Routes* | `config/routes.rb` | `config/router.rb` |
+| *Initialization* | `config/environment.rb` | `config/init.rb` |
+| Environment specific | `config/environments/*` | `config/environments/*` |
+| *Plugins* | `vendor/plugins` | `gems` |
+| *Migrations* | `db/migrate` | `schema/migrations` |
+| *Testing* | `test` | `test` (or) `spec` |
+| Public | `public`  | `public` |
+| Models | `app/models` | `app/models` |
+| Controllers | `app/controllers` | `app/controllers` |
+| Helpers | `app/helpers` | `app/helpers` |
+| *Lib* | `lib/` | (`config` in `init.rb`) |
 
-h1. -vendor/plugins- gems
+# ~~vendor/plugins~~ gems
 
 * Everything is a gem
 * Freeze your gems with your app
 * <b>gem install -i somegem ~/yourapp/gems/ --no-ri --no-rdoc</b>
 * convert rails plugins, start with *merb-gen plugin plugin_name*
-* Lots underway "github.com/search?q=merb":http://github.com/search?q=merb
+* Lots underway [github.com/search?q=merb](http://github.com/search?q=merb)
 
-h1. edit @config/init.rb@
+# edit `config/init.rb`
 
 Choose your ORM
 
-{{{
+```
 use_orm: activerecord
 use_test: rspec
-}}}
+```
 
 Include dependencies (eg mailer)
 
-{{{
+```
 dependencies "merb_helpers", "merb-parts"
 Merb::BootLoader.after_app_loads do
   # Add dependencies here that must load after the
@@ -165,29 +166,29 @@ application loads:
   # dependency "magic_admin" # this gem uses the
 app's model classes
 end
-}}}
+```
 
 
-h1. I want my @database.yml@
+# I want my `database.yml`
 
 Patience. Because you've told merb you want active record, just fire merb for the first time:
 
-{{{
+```
 rowan-laptop:speeddemon rowan$ merb
  ~ Loaded DEVELOPMENT Environment...
  ~ loading gem 'merb_activerecord' ...
  ~ loading gem 'activerecord' ...
  ~ No database.yml file found in /Users/rowan/testing/speeddemon/config.
  ~ A sample file was created called database.sample.yml for you to copy and edit.
-}}}
+```
 
 Copy, edit and save.
 
-h1. @merb-gen@ generators
+# `merb-gen` generators
 
 Let's you know what you can create automagically:
 
-{{{
+```
 rowan-laptop:b2b_merb rowan$ merb-gen generators
 
 .....
@@ -196,13 +197,13 @@ Installed Generators
 
   Rubygems: authenticated, controller, database_sessions_migration,
 migration, model, part_controller, resource, resource_controller
-}}}
+```
 
-see more "rubigen.rubyforge.org":http://rubigen.rubyforge.org/
+see more [rubigen.rubyforge.org](http://rubigen.rubyforge.org)
 
-h1. @merb-gen model mymodel@
+# `merb-gen model mymodel`
 
-Synonymous with @script/generate mymodel@
+Synonymous with `script/generate mymodel`
 
 Extra points:
 
@@ -210,22 +211,22 @@ Extra points:
 * dependent on test framework - creates spec or unit test
 
 
-h1. Setup your first REST resource
+# Setup your first REST resource
 
-* @merb-gen@ again
+* `merb-gen` again
 
-{{{
+```
 $ merb-gen resource Product title:string
-}}}
+```
 
 * Sets up controller, views, model, test code
 * Get coding!
 
-h1. Controller code
+# Controller code
 
 Looks reasonably similar:
 
-{{{
+```
 class Products < Application
   before :check_access_level
   provides :xml
@@ -241,147 +242,148 @@ class Products < Application
     display @product
   end
   ...
-}}}
+```
 
 
-h1. Key Differences
+# Key Differences
 
 | Rails | Merb |
-| @products_controller@ | @products@ |
-| @redirect_to( hash )@ | @redirect( string )@ |
-| @respond_to@ | @provides@ / @only_provides@ / @display@ |
-| @before@/@after_filter@ | @before@/@after@ |
-| @except@  | @exclude@  |
-| @render(hash)@ *optional  | @render@ or @render('hello world')@ *mandatory to get a view|
-| @logger@ | @merb.logger@ |
-| @url_for@ | @url@  |
+|-------|------|
+| `products_controller` | `products` |
+| `redirect_to( hash )` | `redirect( string )` |
+| `respond_to` | `provides` / `only_provides` / `display` |
+| `before`/`after_filter` | `before`/`after` |
+| `except`  | `exclude`  |
+| `render(hash)` *optional  | `render` or `render('hello world')` *mandatory to get a view|
+| `logger` | `merb.logger` |
+| `url_for` | `url`  |
 
 
 
-h1. @display@
+# `display`
 
 * Display handles mime type response
 
-{{{
+```
 provides :xml
 def index
   @product = Product.find(params[:id])
   display @product
 end
-}}}
+```
 
-* Goto @http://127.0.0.1:4000/product/2.xml@
-* Display then looks for @index.xml.erb@, if not found then calls <code>@product.to_xml</code>
+* Goto `http://127.0.0.1:4000/product/2.xml`
+* Display then looks for `index.xml.erb`, if not found then calls `@product.to_xml`
 
 
-h1. Syntactic sugar
+# Syntactic sugar
 
 * Making controller methods look more like methods
 
-{{{
+```
 def my_action(id)
   product = Product.find(id)
 end
-}}}
+```
 
-* Automagically assigns @id@ from @params[:id]@
-* In @merb-more@ (@merb-action-args@)
+* Automagically assigns `id` from `params[:id]`
+* In `merb-more` (`merb-action-args`)
 
-h1. Part Controllers
+# Part Controllers
 
 * Reusable 'components' for use in your views
 * Not accessible from outside world, but can see params hash
 * Their own generator
-* Again in @merb-more@ (@merb-parts@)
+* Again in `merb-more` (`merb-parts`)
 
-h1. Implementing Parts
+# Implementing Parts
 
-In @config/init.rb@
+In `config/init.rb`
 
-{{{
+```
 dependency 'merb-parts'
-}}}
+```
 
-Use @merb-gen@ to set it up for you
+Use `merb-gen` to set it up for you
 
-{{{
+```
 $ merb-gen part_controller widget
 ...
 create app/helpers/widget_part_helper.rb
 create app/parts/widget_part.rb
 create app/parts/views/widget_part/index.html.erb
-}}}
+```
 
 Edit action(s) then call it from a view
 
-{{{
+```
 <%= WidgetPart => :index %>
-}}}
+```
 
 
-h1. Exceptions
+# Exceptions
 
-* Handled in @app/controllers/exceptions.rb@
+* Handled in `app/controllers/exceptions.rb`
 
-{{{
+```
 def show
   @product = Product.find_by_product_id(params[:id])
   raise NotFound unless @product
   display @product
 end
-}}}
+```
 
-* @exceptions.not_found@ method
+* `exceptions.not_found` method
 * render out in that view what you want to show for that error
 
-h1. Router is Powerful
+# Router is Powerful
 
 Example from Yehudas slides at RailsConf
 
-{{{
+```
 Merb::Router.prepare do |r|
   r.match(%r{/login/(.*)}, :user_agent => /MSIE/).
   to(:controller => "acount",
      :action => "login",
      :id => "[1]"
 end 
-}}}
+```
 
-h1. Pressing the GO button
+# Pressing the GO button
 
 * Simple
 
-{{{
+```
 merb -p 3000 -e development
-}}}
+```
 
 * Fires up a mongrel instance through merb
 * Hit it just like regular old rails app
 
-h1. Hooking up to webserver
+# Hooking up to webserver
 
 * Merb implements a Rack adaptor
 * Allows you to use different types of application server depending on your needs. Example:
 
-{{{
+```
 merb -p 3000 -e production -a thin
-}}}
+```
 
 * Mongrel, Thin, Ebb, Eventd Mongrel, Passenger
 * Connect Apache/Nginx -> Merb (not) Apache -> Mongrel -> Merb
 
-h1. Resources
+# Resources
 
-* "merbivore.com":http://merbivore.com
-* "wiki.merbivore.com":http://wiki.merbivore.com
-* Great videos "mwrc2008.confreaks.com":http://mwrc2008.confreaks.com/
-* "merbunity.com":http://merbunity.com
-* "merborials.com":http://merborials.com/ 
-* "github.com/search?q=merb":http://github.com/search?q=merb
-* "www.slideshare.net/search/slideshow?q=merb":http://www.slideshare.net/search/slideshow?q=merb
-* "www.slideshare.net/search/slideshow?q=datamapper":http://www.slideshare.net/search/slideshow?q=datamapper
+* [merbivore.com](http://merbivore.com)
+* [wiki.merbivore.com](http://wiki.merbivore.com)
+* Great videos [mwrc2008.confreaks.com](http://mwrc2008.confreaks.com)
+* [merbunity.com](http://merbunity.com)
+* [merborials.com](http://merborials.com)
+* [github.com/search?q=merb](http://github.com/search?q=merb)
+* [www.slideshare.net/search/slideshow?q=merb](http://www.slideshare.net/search/slideshow?q=merb)
+* [www.slideshare.net/search/slideshow?q=datamapper](http://www.slideshare.net/search/slideshow?q=datamapper)
 
-h1. The million dollar question
+# The million dollar question
 
 Should I use it ?
 
