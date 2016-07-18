@@ -1,29 +1,29 @@
 title: merb - The Pocket Rocket Framework
 gradient: top-bottom black maroon
 
-h1. merb - The Pocket Rocket Framework
+# merb - The Pocket Rocket Framework
 
 Rowan Hick @ Toronto Rails Night, June 2008
 
-(Adapted S9 Version from "Original PDF Slide Deck":http://work.rowanhick.com/2008/06/11/toronto-rails-night-merb-presentation)
+(Adapted S9 Version from Original PDF Slide Deck)
 
-h1. Discussion tonight
+# Discussion tonight
 
 * Intended for people who don't know what Merb is
 * Good grasp of Rails concepts
 * Not patient enough to google/irc/blog search etc to get started on Merb
 * Touch on a lot of features
-* All links/references up on "work.rowanhick.com":http://work.rowanhick.com tomorrow
+* All links/references up on [work.rowanhick.com](http://work.rowanhick.com) tomorrow
 
 
-h1. About Rowan Hick
+# About Rowan Hick
 
 * Product Development Mgr for a startup in Toronto
 * Full time with Rails for 2.5 years
 * Previously PHP/MySQL for 4 years
 * 6 years Prior QA/BA/PM for Enterprise CAD/CAM software dev company
 
-h1. Objects of Desire
+# Objects of Desire
 
 Super Bike   
 
@@ -31,13 +31,15 @@ Sport Cars
 
 * What are these doing in a presentation about Ruby web frameworks?
 
-h1. Bikes vs Cars
+# Bikes vs Cars
 
-The Porsche, you just open the door, turn the key, and drive. It has a/c, a stereo, plush upholstery, everything. Accidents can and do happen but few and far between, but pretty user friendly.
+The Porsche, you just open the door, turn the key, and drive. It has a/c, a stereo, plush upholstery, everything. 
+Accidents can and do happen but few and far between, but pretty user friendly.
 
-The sports bike, it's raw, unadulterated. You can't hop on it wrapped in cotton wool, way easier to get burned. However it's faster, easier to replace, modify and tune things at a lower cost.
+The sports bike, it's raw, unadulterated. You can't hop on it wrapped in cotton wool, way easier to get burned. 
+However it's faster, easier to replace, modify and tune things at a lower cost.
 
-h1. Parallels to the world of MVC?
+# Parallels to the world of MVC?
 
 Rails is...
 
@@ -45,7 +47,7 @@ Rails is...
 * suitable for 80% most web projects
 * a turn-key framework.
 
-h1. ...and
+# ...and
 
 Merb is...
 
@@ -54,32 +56,34 @@ Merb is...
 * going to require a little more skill to get up and running with
 * "the framework for hackers"
 
-h1. Same same but different
+# Same same but different
 
 * It's actually quite similar! (workflow, layout)
-* However ... don’t start emailing merb groups asking for feature XYZ to be implemented "like it is in Rails"
+* However ... don't start emailing merb groups asking for feature XYZ to be implemented "like it is in Rails"
 * Don't expect your app to port without code changes to Merb (although you'd be suprised how little needs to change)
 
-h1. Who Built it
+# Who Built it
 
 * Ezra Zygmuntowicz
 * Yehuda Katz
 * + many others
 * You could get some glory too...
-* "gweezlebur.com/2008/2/1/so-you-want-to-contribute-to-merb-core-part-1":http://gweezlebur.com/2008/2/1/so-you-want-to-contribute-to-merb-core-part-1
+* [gweezlebur.com/2008/2/1/so-you-want-to-contribute-to-merb-core-part-1](http://gweezlebur.com/2008/2/1/so-you-want-to-contribute-to-merb-core-part-1)
 
-h1. Key Philosophy
+# Key Philosophy
 
 * All you need and none you don't
 * No code is faster than no code
 
+<!-- -->
+
 * Anything that slows Merb down is a bug (my personal favourite)
 
-h1. Merb-core -more gems
+# Merb-core -more gems
 
 * What the? Isn't it just Merb?
-* @merb-core@ is the basic slimmed down bare minimum code
-* @merb-more@ contains niceties to help you along your way (action-args, assets, builder, cache, freezer, gen, haml, jquery, mailer, parts, slices)
+* `merb-core` is the basic slimmed down bare minimum code
+* `merb-more` contains niceties to help you along your way (action-args, assets, builder, cache, freezer, gen, haml, jquery, mailer, parts, slices)
 
 h1. Switzerland
 
