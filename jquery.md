@@ -95,155 +95,158 @@ jQuery
 $('#speech1').show();
 ```
 
-h1. CSS Based Selectors
+# CSS Based Selectors
 
-* Prototype - @$$@
+* Prototype - `$$`
 
 To narrow down it's context use
-@Element.getElementsBySelector(selector)@
-(or @Element.select(selector)@ in 1.6)
+`Element.getElementsBySelector(selector)`
+(or `Element.select(selector)` in 1.6)
 
-* jQuery - @$@
+* jQuery - `$`
 
 Virtually all of jQuery's DOM selection is done using CSS 1-3
 
-h1. Selector Examples
+
+# Selector Examples
 
 Prototype
 
-{{{
+```
 $$('.dialog').invoke('show');
 
 $('final-speech').getElementsBySelector('DIV.final-dialog').each(Element.hide);
 
 // 1.6
 $('final-speech').select('DIV.final-dialog').invoke('hide');
-}}}
+```
 
 jQuery
 
-{{{
+```
 $('.dialog').show();
 
 $('#final-speech DIV.final-dialog').hide();
-}}}
+```
 
-h1. DOM Ready Event
+# DOM Ready Event
 
 * Prototype - uses Event object
 * jQuery - uses two types of syntax, both meaning the same thing
 
-p(smaller). jQuery uses different methods to execute the ready function when
+jQuery uses different methods to execute the ready function when
 the DOM is ready, using specific methods for Internet Explorer
-and for Safari[1]
+and for Safari (1)
+{:.smaller}
 
-fn1. "@window.onload@ again":http://dean.edwards.name/weblog/2006/06/again/, "The @window.onload@ Problem Revisited":http://blog.outofhanwell.com/2006/06/08/the-windowonload-problem-revisited/
+1: [`window.onload` again](http://dean.edwards.name/weblog/2006/06/again/), [The `window.onload` Problem Revisited](http://blog.outofhanwell.com/2006/06/08/the-windowonload-problem-revisited/)
 
-h1. Ready Example
+# Ready Example
 
 Prototype
 
-{{{
+```
 Event.observe(window,'load',function(){});
-}}}
+```
 
 Prototype 1.6
 
-{{{
+```
 document.observe('contentloaded',function{});
-}}}
+```
 
 jQuery
 
-{{{
+```
 $(document).ready(function(){});
  // or
 $(function(){});
-}}}
+```
 
-h1. Iteration
+# Iteration
 
 Prototype - current active element, and
 position is passed in to callback function.
 
-{{{
+```
 [el1, el2].each(fn(el, i))
-}}}
+```
 
 jQuery - current element position passed
 in to callback function, and binds the
 function to current active element (i.e. this
 is set to the active element).
 
-{{{
+```
 $([el1, el2]).each(fn(i))
-}}}
+```
 
-h1. DOM Walking
+# DOM Walking
 
 Prototype - up, down, next & previous
 
 jQuery - parent/s, children, next, prev (& nextAll, prevAll)
 
 
-h1. DOM Manipulation
+# DOM Manipulation
 
-Prototype - Insertion class: After, Before, Bottom, Top, update (1.6 will add: @Element.insert@)
+Prototype - Insertion class: After, Before, Bottom, Top, update (1.6 will add: `Element.insert`)
 
 jQuery - after, before, append, prepend & html
 
 
-h1. Element Classes
+# Element Classes
 
-Prototype - @addClassName@, @removeClassName@, @toggleClassName@, @hasClassName@
+Prototype - `addClassName`, `removeClassName`, `toggleClassName`, `hasClassName`
 
-jQuery - @addClass@, @removeClass@, @toggleClass@, is (for class matching)
-
-
-h1. Events
-
-Prototype - Event class: @observe@, @stopObserving@
-(Prototype 1.6 will support @Element.observe@)
-
-jQuery - @bind@, @unbind@ (also supports shortcuts: @.click@, @.dblclick@, @.mouse*@, @.ready@,
-@.focus@, @.blur@)
+jQuery - `addClass`, `removeClass`, `toggleClass`, is (for class matching)
 
 
-h1. Bubbling
+# Events
 
-Prototype - @Event.stop()@
+Prototype - Event class: `observe`, `stopObserving`
+(Prototype 1.6 will support `Element.observe`)
 
-jQuery - return false or @event.stopPropagation()@ (event is passed in
+jQuery - `bind`, `unbind` (also supports shortcuts: `.click`, `.dblclick`, `.mouse*`, `.ready`,
+`.focus`, `.blur`)
+
+
+# Bubbling
+
+Prototype - `Event.stop()`
+
+jQuery - return false or `event.stopPropagation()` (event is passed in
 to the callback)
 
-h1. Ajax
+# Ajax
 
 Prototype
 
-{{{
+```
 new Ajax.Request(url[, options])
-}}}
+```
 
 jQuery
 
-{{{
+```
 $.ajax(options) // url included in options
-}}}
+```
 
-h1. Ajax - Method Comparison
+# Ajax - Method Comparison
 
-table(#ajax).
-|_. Prototype   |_.      |_. jQuery      |
-| @onCreate@    | &hArr; | @beforeSend@  |
-| @onSuccess@   | &hArr; | @success@     |
-| @onException@ | &hArr; | @error@       |
-| @onComplete@  | &hArr; | @complete@    |
+| Prototype     |        | jQuery        |
+|:--------------|:-------|:--------------|
+| `onCreate`    | &hArr; | `beforeSend`  |
+| `onSuccess`   | &hArr; | `success`     |
+| `onException` | &hArr; | `error`       |
+| `onComplete`  | &hArr; | `complete`    |
+{:#ajax}
 
-h1. Ajax Examples
+# Ajax Examples
 
 Prototype
 
-{{{
+```
 new Ajax.Request('/profile', {
   method: 'post',
   parameters:$H({'action':'check_username','username':$F('username')}),
@@ -251,11 +254,11 @@ new Ajax.Request('/profile', {
     // do stuff with response
   }
 });
-}}}
+```
 
 jQuery
 
-{{{
+```
 $.ajax({ url: '/profile',
   data: {'action':'check_username','username': $('#username').val()},
   type: 'post',
@@ -263,60 +266,37 @@ $.ajax({ url: '/profile',
     // do stuff with response
   }
 });
-}}}
+```
 
-h1. Plugins / Extensions
+# Plugins / Extensions
 
 Prototype
 
-{{{
+```
 Element.addMethods({myPlugin : function(element, args) { return element; }});
-}}}
+```
 
 jQuery
 
-{{{
+```
 jQuery.fn.myPlugin = function (args) { return this; };
-}}}
+```
 
-h1. Browser Detection
+# Browser Detection
 
-Prototype - @Prototype.Browser.IE@, @.Webkit@, etc.
+Prototype - `Prototype.Browser.IE`, `.Webkit`, etc.
 
-jQuery - @jQuery.browser.msie@, @.safari@, etc.
-
-
-h1. Resources
-
-table(#resources).
-|_.         |_. Prototype |_. jQuery  |
-| API       | "@prototypejs.org/api@":http://prototypejs.org/api | "@docs.jquery.com/Core@":http://docs.jquery.com/Core  |
-| Tutorials | "@prototypejs.org/learn@":http://prototypejs.org/learn | "@docs.jquery.com/Tutorials@":http://docs.jquery.com/Tutorials  |
-| Effects   | "@script.aculo.us@":http://script.aculo.us | "@docs.jquery.com/Effects@":http://docs.jquery.com/Effects  |
+jQuery - `jQuery.browser.msie`, `.safari`, etc.
 
 
-{{ google_analytics :code => 'UA-397343-10' }}
- 
- 
+# Resources
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+|           | Prototype   | jQuer  y  |
+|:----------|:------------|:----------|
+| API       | [`prototypejs.org/api`](http://prototypejs.org/api) | [`docs.jquery.com/Core`](http://docs.jquery.com/Core)  |
+| Tutorials | [`prototypejs.org/learn`](http://prototypejs.org/learn) | [`docs.jquery.com/Tutorials`](http://docs.jquery.com/Tutorials)  |
+| Effects   | [`script.aculo.us`](http://script.aculo.us) | [`docs.jquery.com/Effects`](http://docs.jquery.com/Effects)  |
+{:#resources}
 
 
 
