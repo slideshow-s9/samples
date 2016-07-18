@@ -340,7 +340,7 @@ end
 module Wiki
   include WikiFilter
 end
-}}}
+```
 
 # Decamper
 
