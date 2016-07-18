@@ -126,24 +126,24 @@ rowan$ merb-gen app speeddemon
 
 | . | Rails | Merb |
 |---|-------|------|
-| *Routes* | `config/routes.rb` | `config/router.rb` |
-| *Initialization* | `config/environment.rb` | `config/init.rb` |
+| **Routes** | `config/routes.rb` | `config/router.rb` |
+| **Initialization** | `config/environment.rb` | `config/init.rb` |
 | Environment specific | `config/environments/*` | `config/environments/*` |
-| *Plugins* | `vendor/plugins` | `gems` |
-| *Migrations* | `db/migrate` | `schema/migrations` |
-| *Testing* | `test` | `test` (or) `spec` |
+| **Plugins** | `vendor/plugins` | `gems` |
+| **Migrations** | `db/migrate` | `schema/migrations` |
+| **Testing** | `test` | `test` (or) `spec` |
 | Public | `public`  | `public` |
 | Models | `app/models` | `app/models` |
 | Controllers | `app/controllers` | `app/controllers` |
 | Helpers | `app/helpers` | `app/helpers` |
-| *Lib* | `lib/` | (`config` in `init.rb`) |
+| **Lib** | `lib/` | (`config` in `init.rb`) |
 
 # ~~vendor/plugins~~ gems
 
 * Everything is a gem
 * Freeze your gems with your app
-* <b>gem install -i somegem ~/yourapp/gems/ --no-ri --no-rdoc</b>
-* convert rails plugins, start with *merb-gen plugin plugin_name*
+* **gem install -i somegem ~/yourapp/gems/ --no-ri --no-rdoc**
+* convert rails plugins, start with **merb-gen plugin plugin_name**
 * Lots underway [github.com/search?q=merb](http://github.com/search?q=merb)
 
 # edit `config/init.rb`
