@@ -1,27 +1,17 @@
 title: JRuby: Ready for Action
 gradient: dark blue black
 
-h1. JRuby: Ready for Action
+# JRuby: Ready for Action
 
 Charles Oliver Nutter and Thomas Enebo @ Prague, EuRuKo 2008
 
 The JRuby Guys, Sun Microsystems
 
-Adapted S6/S9[1] Version from "Original Slide Deck":http://dist.codehaus.org/jruby/talks/EuRuKo%202008.odp
-
-<hr>
-fn1. ("Source":http://slideshow.rubyforge.org/svn/samples/jruby.textile)
-
-*Slide Show Keyboard Controls (Help)*
-
-| Action | Key |
-| Go to next slide | Space Bar, Right Arrow, Down Arrow, Page Down |
-| Go to previous slide | Left Arrow, Up Arrow, Page Up |
-| Toggle between slideshow and outline view (&#216;) | T |
-| Show/hide slide controls (&#216; &laquo; &raquo;) | C, Move mouse to bottom right corner |
+(Adapted S9 Version from Original Slide Deck)
 
 
-h1. Agenda
+
+# Agenda
 
 * JRuby overview
 * JRuby enhancements and additions
@@ -32,7 +22,7 @@ h1. Agenda
 * Graphics and applets (that don't suck)
 * Demo: Pretty graphics!
 
-h1. The JRuby Guys
+# The JRuby Guys
 
 * Charles Oliver Nutter and Thomas Enebo
 * Longtime Java developers (10+ yrs each)
@@ -40,108 +30,109 @@ h1. The JRuby Guys
 * Full-time JRuby developers
 * Also working on JVM dynlang support
 * Wide range of past experience
-** C, C++, C#, Perl, Python, Delphi, Lisp, Scheme
-** Java EE and ME, JINI, WS
+  * C, C++, C#, Perl, Python, Delphi, Lisp, Scheme
+  * Java EE and ME, JINI, WS
 
-h1. JRuby
+# JRuby
 
 * Java implementation of Ruby language
-** "It's just Ruby!"
+  * "It's just Ruby!"
 * Started in 2002, open source, many contributors
-** Ola Bini, Marcin Mielzinsky, Nick Sieger, Bill Dortch, Vladimir Sizikov, MenTaLguY
+  * Ola Bini, Marcin Mielzinsky, Nick Sieger, Bill Dortch, Vladimir Sizikov, MenTaLguY
 * Aiming for compatibility with current Ruby version
-** Ruby 1.8.6 patchlevel 111 (114 was just released)
+  * Ruby 1.8.6 patchlevel 111 (114 was just released)
 * Improvements on Ruby
-** Native threading, better performance, many libraries
+  * Native threading, better performance, many libraries
 
-h1. JRuby 1.1 Released!
+# JRuby 1.1 Released!
 
 * Announced today: JRuby 1.1 is finished!
 * Massive improvements over 1.0
-** Full compiler for Ruby code to JVM bytecode
-** Performance is many times better across the board
-** New Regexp impl with full Oniguruma features
-** New rewritten IO subsystem to parallel Ruby behavior
-** Reduced memory footprint
-** Best compatibility level ever
+  * Full compiler for Ruby code to JVM bytecode
+  * Performance is many times better across the board
+  * New Regexp impl with full Oniguruma features
+  * New rewritten IO subsystem to parallel Ruby behavior
+  * Reduced memory footprint
+  * Best compatibility level ever
 * Ready for production use (and already being used)
 * Quick series of maintenance releases coming
 
-h1. Compatibility
+# Compatibility
 
 * Applications are king
-** Rails, Rubygems, Rake, Rspec, ...
+  * Rails, Rubygems, Rake, Rspec, ...
 * Testing rulez (~42,000 expectations/assertions)
-** Prevents regressions
-** Helps to better define Ruby
+  * Prevents regressions
+  * Helps to better define Ruby
 * Prevents fragmenting a community
-** Like Sapphire or ...Sapphire???
+  * Like Sapphire or ...Sapphire???
 
-h1. Java == A Dirty Word
+# Java == A Dirty Word
 
 * "The answer is Java. What is the Question?"
 
-h1. Java != A Dirty Word
+# Java != A Dirty Word
 
-!jruby-javapie.png!
+![](i/jruby-javapie.png)
 
-h1. Java != A Dirty Word
+# Java != A Dirty Word
 
 * Fantastic Virtual Machine
-** Tuned for over a decade by an army
-** Runs on virtually all os/hardware combos
-** Dynamic optimizations (Hotspot)
-** Keeps getting faster:
+  * Tuned for over a decade by an army
+  * Runs on virtually all os/hardware combos
+  * Dynamic optimizations (Hotspot)
+  * Keeps getting faster:
 
 |         | Java 5 | Java 6  |     |
+|---------|--------|---------|-----|
 | Rexml   | 10.9s  | 7.41s   | %32 |
 | Hpricot |  4.06s | 2.59s   | %36 |
 
-h1. Java != A Dirty Word
+# Java != A Dirty Word
 
 * Fantastic Garbage Collectors
-** Compacting
-** Concurrent
-** Many tunables and choices
+ * Compacting
+ * Concurrent
+ * Many tunables and choices
 
-h1. Java != A Dirty Word
+# Java != A Dirty Word
 
 * Native threading
 * Tools
-** IDEs (refactoring, debugging)
-** Profilers (instrumenting, sampling)
-** JMX (ask VM for stats)
+  * IDEs (refactoring, debugging)
+  * Profilers (instrumenting, sampling)
+  * JMX (ask VM for stats)
 * Libraries
-** Anything you can think of...
-** Write image_science in 60 lines of Ruby using Java 2D
+  * Anything you can think of...
+  * Write image_science in 60 lines of Ruby using Java 2D
 
-h1. Where is JRuby being used?
+# Where is JRuby being used?
 
 * Swing GUI development
-** Makes Swing much nicer to use, easier to handle
+  * Makes Swing much nicer to use, easier to handle
 * Ruby on Rails
-** Better deployment options, better performance
+  * Better deployment options, better performance
 * Tooling for IDEs
-** JRuby's parser enables NetBeans, Eclipse, IntelliJ
+  * JRuby's parser enables NetBeans, Eclipse, IntelliJ
 * Graphics
-** Ruby + Processing = cool demos
+  * Ruby + Processing = cool demos
 
-h1. Swing GUI Programming
+# Swing GUI Programming
 
 * Swing API is very large, complex
-** Ruby magic simplifies most of the tricky bits
+  * Ruby magic simplifies most of the tricky bits
 * Java is a very verbose language
-** Ruby makes Swing actually fun
+  * Ruby makes Swing actually fun
 * No consistent cross-platform GUI library for Ruby
-** Swing works everywhere Java does (everywhere)
+  * Swing works everywhere Java does (everywhere)
 * No fire-and-forget execution
-** No dependencies: any script works on any JRuby install
+  * No dependencies: any script works on any JRuby install
 
 DEMO: Swing in Ruby
 
-h1. Option 1: Direct approach
+# Option 1: Direct approach
 
-{{{
+```
 import javax.swing.JFrame
 import javax.swing.JButton
 
@@ -157,12 +148,12 @@ end
 
 frame.add(button)
 frame.show
-}}}
+```
 
 
-h1. Option 2: Cheri (builder approach)
+# Option 2: Cheri (builder approach)
 
-{{{
+```
 include Cheri::Swing
 
 frame = swing.frame("Swing builders!") { |form|
@@ -176,11 +167,11 @@ frame = swing.frame("Swing builders!") { |form|
 }
 
 frame.visible = true
-}}}
+```
 
-h1. Option 3: Profligacy (targeted fixes)
+# Option 3: Profligacy (targeted fixes)
 
-{{{
+```
 class ProfligacyDemo
   import javax.swing.*
   include Profligacy
@@ -202,9 +193,9 @@ class ProfligacyDemo
     }
   end
 end
-}}}
+```
 
-h1. Option 4: MonkeyBars (tool-friendly)
+# Option 4: MonkeyBars (tool-friendly)
 
 * GUI editor friendly (e.g. NetBeans "Matisse")
 * Simple Ruby MVC-based API
@@ -212,7 +203,7 @@ h1. Option 4: MonkeyBars (tool-friendly)
 
 MonkeyBars Controller:
 
-{{{
+```
 class RssController < Monkeybars::Controller
   set_view "RssView"
   set_model "RssModel"
@@ -230,63 +221,64 @@ class RssController < Monkeybars::Controller
     update_view
   end
   ...
-}}}
+```
 
-h1. Web applications
+# Web applications
 
 * Classic Java web dev is too complicated
-** Modern frameworks follow Rails' lead
+  * Modern frameworks follow Rails' lead
 * Over-flexible, over-configured
-** Conventions trump repetition and configuration
+  * Conventions trump repetition and configuration
 * Rails deployment is still a pain
-** You shouldn't need N processes!
+  * You shouldn't need N processes!
 * Rails performance should be better
-** JRuby has potential to be much faster
+  * JRuby has potential to be much faster
 
 DEMO: GlassFish Gem
 
-h1. Production JRuby on Rails
+# Production JRuby on Rails
 
-* Oracle's Mix – digg-like social customer site
-** "mix.oracle.com":http://mix.oracle.com
-* Sun's MediaCast – file distribution portal
-** "mediacast.sun.com":http://mediacast.sun.com
-* ThoughtWorks' Mingle – collaborative project mgmt
-** "mingle.thoughtworks.com":http://mingle.thoughtworks.com
-* Sonar – code/project analysis tool
-** "sonar.hortis.ch":http://sonar.hortis.ch
+* Oracle's Mix â€“ digg-like social customer site
+  * [mix.oracle.com](http://mix.oracle.com)
+* Sun's MediaCast â€“ file distribution portal
+  * [mediacast.sun.com](http://mediacast.sun.com)
+* ThoughtWorks' Mingle â€“ collaborative project mgmt
+  * [mingle.thoughtworks.com](http://mingle.thoughtworks.com)
+* Sonar â€“ code/project analysis tool
+  * [sonar.hortis.ch](http://sonar.hortis.ch)
 * More on the way!
 
 
-h1. JRuby Enables Tooling
+# JRuby Enables Tooling
 
 * JRuby's parser used by most Ruby IDEs
-** NetBeans Ruby Support
-** Eclipse RDT/RadRails/Aptana, DLTK, 3rd Rail
-** IntelliJ
-** Jedit
+  * NetBeans Ruby Support
+  * Eclipse RDT/RadRails/Aptana, DLTK, 3rd Rail
+  * IntelliJ
+  * Jedit
 * Roman Strobl's NetBeans session at 13:00
 
-!jruby-tooling.png!
+![](i/jruby-tooling.png)
 
-h1. Graphics with Processing
+# Graphics with Processing
 
 * "Processing is an open source programming language and environment for people who want to program images, animation, and interactions."
-** Basically a cool Java library for 2D graphics
+  * Basically a cool Java library for 2D graphics
 * Ruby-Processing wraps Processing with JRuby
-** Cool, rubified 2D graphics environment for you
-** Eye-candy demos for us
-** Thanks to Jeremy Ashkenas for putting these together
+  * Cool, rubified 2D graphics environment for you
+  * Eye-candy demos for us
+  * Thanks to Jeremy Ashkenas for putting these together
 
 DEMO: Pretty Graphics!
 
-h1. Thank you!
+# Thank you!
 
-* Main JRuby page: "www.jruby.org":http://www.jruby.org
-* JRuby Wiki: "wiki.jruby.org":http://wiki.jruby.org
+* Main JRuby page: [www.jruby.org](http://www.jruby.org)
+* JRuby Wiki: [wiki.jruby.org](http://wiki.jruby.org)
 * Charles Nutter
-** charles.nutter AT sun.com
-** "headius.blogspot.com":http://headius.blogspot.com
+  * charles.nutter AT sun.com
+  * [headius.blogspot.com](http://headius.blogspot.com)
 * Tom Enebo
-** thomas.enebo AT sun.com
-** "www.bloglines.com/blog/ThomasEEnebo":http://www.bloglines.com/blog/ThomasEEnebo
+  * thomas.enebo AT sun.com
+  * [www.bloglines.com/blog/ThomasEEnebo](http://www.bloglines.com/blog/ThomasEEnebo)
+
