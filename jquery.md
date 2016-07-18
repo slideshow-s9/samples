@@ -17,35 +17,34 @@ table#ajax td   { text-align: center; }
 %%%%%%%%%%%%%
 % Slides Start Here
 
-h1. Prototype &hArr; jQuery  
+# Prototype &hArr; jQuery  
 
-p(center). To and from JavaScript libraries by ["Remy Sharp":http://remysharp.com][1]
+To and from JavaScript libraries 
 
-%% ---
+[Remy Sharp](http://remysharp.com)
 
-fn1. Adapted S6 Version from "Original PDF Slide Deck":http://www.slideshare.net/remy.sharp/prototype-jquery-going-from-one-to-the-other
-
-%% , {{ source path=3rd text='S9 Textile Source' }}
-
-{{ help }}
+(Adapted S6 Version from Original PDF Slide Deck)
 
 
-h1. Why Prototype?
+
+# Why Prototype?
 
 * Extends the DOM and core JavaScript objects
 * An arsenal of utility functions
 
-p(right smaller). Based on Prototype 1.5.1 & 1.6
+Based on Prototype 1.5.1 & 1.6
+{:.right .smaller}
 
-h1. Why jQuery
+# Why jQuery
 
 * Centred around chaining and binding methods to objects and elements
 * Totally encapsulated
 * Aims to be exceptionally easy to develop with
 
-p(right smaller). Based on jQuery 1.2.1
+Based on jQuery 1.2.1
+{:.right .smaller}
 
-h1. Differences in Native Support
+# Differences in Native Support
 
 {% left %}
 
@@ -61,40 +60,40 @@ Prototype has:
 
 jQuery has: 
 
-* No Conflict (@$@) 
+* No Conflict (`$`) 
 * Effects 
 
 {% end %}
 
-p(smaller). Non-exhaustive list, and in most case, the
-functionality can be implemented with plugins.
+Non-exhaustive list, and in most case, the functionality can be implemented with plugins.
+{: .smaller}
 
 
-h1(fullscreen). Syntax Comparison
+# Syntax Comparison
 
+# Dollar Variable
 
-h1. Dollar Variable
+* Prototype uses `$` for id based selection
+* jQuery `$` = CSS based selector (= `$$` in Prototype)
 
-* Prototype uses @$@ for id based selection
-* jQuery @$@ = CSS based selector (= @$$@ in Prototype)
-
-p(smaller). Note that Prototype will return element objects or arrays of
+Note that Prototype will return element objects or arrays of
 elements for most methods. jQuery will usually return a jQuery
 object (which looks like an array in Firebug).
+{:.smaller}
 
-h1. @$@ Example
+# `$` Example
 
 Prototype
 
-{{{
+```
 $('speech1').show();
-}}}
+```
 
 jQuery
 
-{{{
+```
 $('#speech1').show();
-}}}
+```
 
 h1. CSS Based Selectors
 
