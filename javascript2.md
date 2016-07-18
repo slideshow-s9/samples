@@ -1,55 +1,55 @@
 title: JavaScript 2 and the Open Web
 
 
-h1. JavaScript 2 and the Open Web
+# JavaScript 2 and the Open Web
 
 Brendan Eich (Mozilla) @media Ajax London, November 2007
 
-(Adapted S9 Version From Original S5 Slide Deck)
+(Adapted S9 Version from Original S5 Slide Deck)
 
-h1. Cui Bono - Who decides what is "better"?
+# Cui Bono - Who decides what is "better"?
 
 * Browser, plugin, and OS vendors?
 * Web developers?
 * All of the above, ideally
-** Without taking too long
-** Or making a mess
+  * Without taking too long
+  * Or making a mess
 * Preventing change could spare us from "worse"
 * Or help proprietary "change" to take off for the worst
 
-h1. Inevitable Evolution
+# Inevitable Evolution
 
 * Web browsers are evolving
 * They need to, against Microsoft Silverlight, Adobe Intergrated Runtime (AIR), and OS stacks
 * Browsers (and plugins!) need all three of
-## Better Security
-## Better APIs for everything (see 1)
-## Better programming language support (see 1 and 2)
+  1. Better Security
+  2. Better APIs for everything (see 1)
+  3. Better programming language support (see 1 and 2)
 * No two-legged stools, all three are needed
 
-h1. Evolving Toward "Better"
+# Evolving Toward "Better"
 
 * Security: hard problem, humans too much in the loop
-** Good ideas ("Caja: Capability Javascript":http://www.google.com/search?q=google+caja+paper) being tried now
-** Soundness still elusive
-* APIs: served by Web Hypertext Application Technology Working Group "(WHAT-WG)":http://www.whatwg.org (Apple, Mozilla, Opera)
-** and "Google Gears":http://code.google.com/apis/gears/
-** and perhaps "ScreamingMonkey":http://wiki.mozilla.org/Tamarin:ScreamingMonkey ?
-** Internet Explorer 8 (IE8)... who knows?
+  * Good ideas ([Caja: Capability Javascript](http://www.google.com/search?q=google+caja+paper)) being tried now
+  * Soundness still elusive
+* APIs: served by Web Hypertext Application Technology Working Group [(WHAT-WG)](http://www.whatwg.org) (Apple, Mozilla, Opera)
+  * and [Google Gears](http://code.google.com/apis/gears/)
+  * and perhaps [ScreamingMonkey](http://wiki.mozilla.org/Tamarin:ScreamingMonkey) ?
+  * Internet Explorer 8 (IE8)... who knows?
 * Languages: only realistic hope in the short run is JavaScript 2
 
-h1. Alternative Languages
+# Alternative Languages
 
 * Why not new/other programming languages?
 * JavaScript not going away in our lifetimes
 * JavaScript code is growing, not being rewritten
 * No room for multiple language runtimes in mobile browser
-** Apple, Mozilla, Opera attest to this in my hearing
+  * Apple, Mozilla, Opera attest to this in my hearing
 * One multi-language runtime? Eventually, not soon enough
-** A patent minefield...
-** How many hard problems can we (everyone!) solve at once *and* quickly?
+  * A patent minefield...
+  * How many hard problems can we (everyone!) solve at once **and** quickly?
 
-h1. Why JavaScript 2
+# Why JavaScript 2
 
 * JavaScript 1 is too small => complexity tax on library and app authors
 * JavaScript 1 has too few primitives => hard idiom optimization problem
@@ -57,11 +57,11 @@ h1. Why JavaScript 2
 * JavaScript 1 is not taught much => Java U. still cranking out programmers
 * JavaScript 2 aims to cover the whole user curve, "out of the box"
         
-h1. Normal Distribution
+# Normal Distribution
 
-!BellCurve.png!
+![](i/BellCurve.png)
 
-h1. Wait a Minute!
+# Wait a Minute!
 
 Perhaps you object (strenously):
 
@@ -70,7 +70,7 @@ Perhaps you object (strenously):
 * Security through smallness, and anyway: fix security first
 * People are learning, Yoda is teaching them
 
-h1. OK, Granted
+# OK, Granted
         
 * Some truth in these claims, just not enough in my view
 * The odds ratios multiply to a pretty small success likelihood
@@ -79,17 +79,17 @@ h1. OK, Granted
 * And really, JavaScript 1 users who are hitting its limits need relief soon
     
 
-h1. Why Not Evolve?
+# Why Not Evolve?
 
 * We're not proto-humans from _2001: A Space Odyssey_
-** Making space ships out of bones
-** Or modules out of lambdas
+  * Making space ships out of bones
+  * Or modules out of lambdas
 * We're highly-evolved tool users, with opposable thumbs -- we can:
 * Make better use of an existing tool (JavaScript 1)
 * Improve the tool itself (JavaScript 2)
 * Why not do both?
  
-h1. But... But...
+# But... But...
 
 You may still object:
 
@@ -98,7 +98,7 @@ You may still object:
 * Aren't you rejecting your own elegant (yet messy) creation?
 * Who replaced you with a pod-person? We don't even know you any longer!
 
-h1. What I Seek
+# What I Seek
 
 * To make JavaScript (not people)... _better_
 * Better for its present and near-future uses on the web
@@ -107,19 +107,19 @@ h1. What I Seek
 * They face increasing workload -- lots of objects, runtime
 * JavaScript users deserve improvements since JavaScript 1/EmcaScript 3 (eight years ago)
 
-h1. In Particular
+# In Particular
 
 * JavaScript users deserve an optional type system
-** Instead of tedious (often skipped) error checking
-** So APIs can prove facts about their arguments
-** Without requiring all calling code to be typed
-** (... at first, or ever!)
+  * Instead of tedious (often skipped) error checking
+  * So APIs can prove facts about their arguments
+  * Without requiring all calling code to be typed
+  * (... at first, or ever!)
 * They deserve integrity guarantees such as @const@
 * They deserve real namespaces, packages, compilation units
 * They deserve some overdue "bug fixes" to the EmcaScript 3 (ES3) standard
 * They deserve generous syntactic sugar on top
 
-h1. The Deeper Answer
+# The Deeper Answer
 
 Why JavaScript 2 as a major evolutionary jump matters:
 
@@ -129,63 +129,63 @@ Why JavaScript 2 as a major evolutionary jump matters:
 * No more waiting for Internet Explorer(or Firefox, or Safari, or Opera)
 * Distributed extensibility, web developers win
 
-h1. Believe It
+# Believe It
 
 * Yes, this was the Java dream that died in 1995, or 1997
 * This time for sure (Tamarin may be the most widely deployed VM ever)
 * It's coming true with JavaScript -- if only it can evolve enough in time
 
-h1. Non-Issues
+# Non-Issues
 
 * JavaScript 1 performance on synthetic pure-JavaScript (no DOM) benchmarks
 * Trace-based JITing accelerates JavaScript 1 at least an order of magnitude
 * Work from Michael Franz's group at UC Irvine (Mozilla supported)
-* No @int@ type annotations required
+* No `int` type annotations required
 * Preliminary results (from submitted papers) based on Tamarin-to-Java bytecode translation, with a custom tracing JIT targeting the JVM (whew!), next... 
 
-h1. Tracing JIT Benchmarks
+# Tracing JIT Benchmarks
 
-!JavaGrandeA.png!
-
-
-h1. Tracing JIT Benchmarks 
-
-!JavaGrandeB.png!
+![](i/JavaGrandeA.png)
 
 
-h1. Non-Issues (2)
+# Tracing JIT Benchmarks 
+
+![](i/JavaGrandeB.png)
+
+
+# Non-Issues (2)
 
 * Making JavaScript 2 look like any other language
-* "Stuart, yesterday":http://www.vivabit.com/atmediaAjax/sessions/#how  : fans already fake JavaScript 1 to resemble Ruby, Python, ...
+* [Stuart, yesterday](http://www.vivabit.com/atmediaAjax/sessions/#how) : fans already fake JavaScript 1 to resemble Ruby, Python, ...
 * But: JavaScript 2 learns from other languages
-** ActionScript 3: nominal types, namespaces, packages
-** Python: iterators and generators, catch-alls
-** Dylan, Cecil: generic methods
+  * ActionScript 3: nominal types, namespaces, packages
+  * Python: iterators and generators, catch-alls
+  * Dylan, Cecil: generic methods
 * Only those who don't learn history are doomed to repeat it
 * Problems will be shaken out in JavaScript 2/EmcaScript 4 "beta"
-** No rubber-stamped standards! (*cough* OOXML)
+  * No rubber-stamped standards! (**cough** OOXML)
 
 
-h1. Integrity in JavaScript 2
+# Integrity in JavaScript 2
 
 * Object, Array, etc., globals can be replaced in JavaScript 1
-** JSON CSRF hazards pointed out by "Joe Walker":http://getahead.org/blog/joe/2007/03/05/json_is_not_as_safe_as_people_think_it_is.html
-** ECMA spec says this matters, or not, half the time
-** JavaScript 2 makes the standard class bindings immutable
+  * JSON CSRF hazards pointed out by [Joe Walker](http://getahead.org/blog/joe/2007/03/05/json_is_not_as_safe_as_people_think_it_is.html)
+  * ECMA spec says this matters, or not, half the time
+  * JavaScript 2 makes the standard class bindings immutable
 * Objects are mutable, extensible
-** Even with privileged/private members via closures
-** Too easy to _forge_ instance of special type
-** JavaScript 2 has @class@ exactly to solve this problem
-** JavaScript 2 lets users make _fixtures_, fixed ("don't delete") properties
+  * Even with privileged/private members via closures
+  * Too easy to _forge_ instance of special type
+  * JavaScript 2 has `class` exactly to solve this problem
+  * JavaScript 2 lets users make _fixtures_, fixed ("don't delete") properties
 * JavaScript 1 user-defined properties can be replaced/hijacked
-** JavaScript 2 has @const@ and @final@
+  * JavaScript 2 has `const` and `final`
            
 
-h1. Evolutionary Programming
+# Evolutionary Programming
 
 Version 1 of a webmail client, in almost pure JavaScript 1
 
-{{{
+```
 function send(msg) {
     validateMessage(msg);
     msg.id = sendToServer(JSON.encode(msg));
@@ -195,12 +195,12 @@ function send(msg) {
 function fetch() {
     handleMessage(-1);   // -1 means "get new mail"
 }
-}}}
+```
 
 
-h1. Evolutionary Programming (2)
+# Evolutionary Programming (2)
   
-{{{
+```
 function get(n) {
     if (uint(n) !== n)   // JS1: n>>>0 === n
         throw new TypeError;
@@ -210,11 +210,11 @@ function get(n) {
 }
 
 var database = [];
-}}}           
+```           
 
-h1. Evolutionary Programming (3)
+# Evolutionary Programming (3)
         
-{{{
+```
 function handleMessage(n) {
     let msg = JSON.decode(fetchFromServer(n));
     if (typeof msg != "object")
@@ -224,12 +224,12 @@ function handleMessage(n) {
     validateMessage(msg);
     return database[msg.id] = msg;
 }
-}}}
+```
 
  
-h1. Evolutionary Programming (4)
+# Evolutionary Programming (4)
         
-{{{
+```
 function validateMessage(msg) {
     function isAddress(a)
         typeof a == "object" && a != null &&
@@ -244,14 +244,14 @@ function validateMessage(msg) {
         typeof msg.body == "string"))
         throw new TypeError;
 }
-}}}
+```
 
 
-h1. Evolution, Second Stage
+# Evolution, Second Stage
 
 Version 2: Structural types for validation.
 
-{{{
+```
 type Addr = { at: [string, string], name: string };
 type Msg = {
     to: [Addr], from: Addr, subject: string, body: string, id: uint
@@ -264,12 +264,12 @@ function send(msg: like Msg) {
 
 function fetch()
     handleMessage(-1);
-}}}
+```
 
 
-h1. Evolution, Second Stage
+# Evolution, Second Stage
 
-{{{
+```
 function get(n: uint) {
     if (n in database)
         return database[n];
@@ -284,13 +284,13 @@ function handleMessage(n) {
         return database[msg.id] = msg;
     throw new TypeError;
 }
-}}}
+```
 
-h1. Evolution, Third Stage
+# Evolution, Third Stage
 
 Version 3a: Integrity through structural type fixtures (other functions are unchanged since Version 2)
 
-{{{
+```
 type MsgNoId = {
     to: [Addr], from: Addr, subject: string, body: string
 };
@@ -299,11 +299,11 @@ function send(msg: like MsgNoId) {
     msg.id = sendToServer(JSON.encode(msg));
     database[msg.id] = copyMessage(msg);
 }
-}}}
+```
 
-h1. Evolution, Third Stage (2)
+# Evolution, Third Stage (2)
 
-{{{
+```
 function handleMessage(n) {
     let msg = JSON.decode(fetchFromServer(n));
     if (msg is like { result: string } && msg.result == "no data")
@@ -312,12 +312,12 @@ function handleMessage(n) {
         return database[id] = copyMessage(msg);
     throw new TypeError;
 }
-}}}
+```
 
 
-h1. Evolution, Third Stage (3)
+# Evolution, Third Stage (3)
         
-{{{
+```
 function copyMessage(msg) {
     function newAddr({ at: [user, host], name })
         new Addr([user, host]: [string, string], name);
@@ -326,14 +326,14 @@ function copyMessage(msg) {
     return new Msg(to.map(newAddr), newAddr(from),
                                  subject, body, id);
 }
-}}}
+```
 
 
-h1. Alternative Third Stage
+# Alternative Third Stage
 
 Version 3b (other functions are unchanged since Version 3a)
 
-{{{
+```
 function send(msg: like MsgNoId) {
     msg.id = sendToServer(JSON.encode(msg))
     database[msg.id] = msg wrap Msg
@@ -345,62 +345,62 @@ function handleMessage(n) {
         return null
     return database[msg.id] = msg wrap Msg
 }
-}}}
+```
 
 
-h1. Observations on Evolution
+# Observations on Evolution
 
 * At no point so far did clients have to use types
 * Code shrank by half from stage 1 to 3a, more to 3b
-* First stage just used a tiny bit of JavaScript 2 (@uint@)
-* Second stage added structural types and @is like@ tests
-** Sanity-checking the "shape" of API arguments
-** But trusting the client not to mutate behind the library's back!
+* First stage just used a tiny bit of JavaScript 2 (`uint`)
+* Second stage added structural types and `is like` tests
+  * Sanity-checking the "shape" of API arguments
+  * But trusting the client not to mutate behind the library's back!
 * Third stage copied into structural type instances with fixtures -- integrity against confused/malicious client
 * Alternative third stage used @wrap@ instead
 
-h1. Observations on Evolution (2)
+# Observations on Evolution (2)
 
-* A "modularization" stage would use @package@ or @namespace@
-* If copying or wrapping too costly, drop @like@ from formal params, and either:
-** Change client to pass structural type instances
-** Or use nominal types (@class@, @interface@) throughout
-** Either way, client changes required at this point
+* A "modularization" stage would use `package` or `namespace`
+* If copying or wrapping too costly, drop `like` from formal params, and either:
+  * Change client to pass structural type instances
+  * Or use nominal types (`class`, `interface`) throughout
+  * Either way, client changes required at this point
 * Use optional strict mode for verification before deployment
 * (Many thanks to Lars Thomas Hansen for the example code)
 
-h1. Conclusions
+# Conclusions
 
 * JavaScript 2 focused on programming in the large and code migration:
-** Evolutionary programming with structural types
-** Gradual typing from @like@ to @wrap@ or fixed types
+  * Evolutionary programming with structural types
+  * Gradual typing from `like` to `wrap` or fixed types
 * Rapid prototypes start out untyped, just like today
 * We believe most web JavaScript can remain untyped, with good performance
 * Library APIs and implementations can buy integrity and efficiency by the yard
 * Higher integrity with efficiency may induce more "islands" of typed code (e.g., real-time games)
 
-h1. What Else Is New?
+# What Else Is New?
 
-* "ScreamingMonkey":http://wiki.mozilla.org/Tamarin:ScreamingMonkey lives!  It runs a self-hosted JavaScript 2/EmcaScript 4 compiler that generates bytecode from the compiler's own source
+* [ScreamingMonkey](http://wiki.mozilla.org/Tamarin:ScreamingMonkey) lives!  It runs a self-hosted JavaScript 2/EmcaScript 4 compiler that generates bytecode from the compiler's own source
 * Much optimization work remains to be done
-* But the C# "chess demo":http://on10.net/Blogs/tina/microsoft-silverlight-chess/ from MIX07, ported to EmcaScript 4, runs now
+* But the C# [chess demo](http://on10.net/Blogs/tina/microsoft-silverlight-chess/) from MIX07, ported to EmcaScript 4, runs now
 * ScreamingMonkey chess demo is ~15x faster than the JScript version (per fresh e-mail today from Mark Hammond)
-* Demos of two other new APIs, the @<video>@ tag and 3D @<canvas>@, follow...
+* Demos of two other new APIs, the `<video>` tag and 3D `<canvas>`, follow...
 
-h1. Video Tag Demo
+# Video Tag Demo
    
-* Implements the WHAT-WG @<video>@ tag proposal
+* Implements the WHAT-WG `<video>` tag proposal
 * Opera and now Apple have implemented too
 * page-defined DHTML playback controls
 * Uses Ogg Theora and Vorbis for video and audio
-* Embeds @<video>@ in SVG @<foreignObject>@ for transforms
+* Embeds `<video>` in SVG `<foreignObject>` for transforms
 * Developed by Chris Double
     
-h1. Canvas3D Demo
+# Canvas3D Demo
 
-* Alternative OpenGL-ES rendering context for @<canvas>@
-* Now available as a "Firefox 3 addon":http://osdir.com/ml/java.classpath.patches/2005-03/msg00032.html !
-* Embeds OpenGL's shader language in @<script>@, read via DOM
+* Alternative OpenGL-ES rendering context for `<canvas>`
+* Now available as a [Firefox 3 addon](http://osdir.com/ml/java.classpath.patches/2005-03/msg00032.html)!
+* Embeds OpenGL's shader language in `<script>`, read via DOM
 * Example KMZ (Google Earth) viewer
 * Developed by Vladimir Vukicevic
      
