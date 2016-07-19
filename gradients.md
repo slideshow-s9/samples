@@ -249,5 +249,3 @@ Gradient Generators
 * [Radial Gradients Generator](http://www.westciv.com/tools/radialgradients/) by John Allsopp
 
 <%= background '-moz-linear-gradient(top, yellow, orange, yellow, orange)' %>
-
-{{ google_analytics code=UA-397343-10 }}
