@@ -881,4 +881,3 @@ under the following conditions:
 * You must give the original author credit.
 * You may not use this work for commercial purposes.
 
-{{ google_analytics code=UA-397343-10 }}
