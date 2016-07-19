@@ -46,13 +46,9 @@ div.code pre {
 Jim Weirich
 %class center
 
-Adapted S6/S9 Version <sup>1</sup> from [Original Slide Deck](http://onestepback.org/articles/10things)
+(Adapted S6/S9 Version from [Original Slide Deck](http://onestepback.org/articles/10things))
 %class center
 
-%% ---
-%% <sup>1</sup> {{ source path=3rd }}
-
-{{ help }}
 
 
 # Who Am I?
